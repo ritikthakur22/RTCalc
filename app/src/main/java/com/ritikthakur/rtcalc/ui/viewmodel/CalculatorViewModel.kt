@@ -190,10 +190,13 @@ class CalculatorViewModel @Inject constructor(
         val isResult = isResultState()
         val currentExpr = getExpression()
         
-        // Exponent handles itself, comma for multiple parameters (e.g. nCr(5,2))
         val suffix = when (functionName) {
             "sin", "cos", "tan", "asin", "acos", "atan", "sinh", "cosh", "tanh",
-            "log", "ln", "log2", "sqrt", "abs", "floor", "ceil", "round", "nCr", "nPr", "gcd", "lcm" -> "$functionName("
+            "log", "ln", "log2", "sqrt", "abs", "floor", "ceil", "round", "gcd", "lcm" -> "$functionName("
+            "nPr" -> " P "
+            "nCr" -> " C "
+            "1/x" -> "1/("
+            "mod" -> " mod "
             else -> functionName
         }
 

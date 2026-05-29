@@ -134,4 +134,30 @@ class ExpressionEvaluatorTest {
         val phiResult = ExpressionEvaluator.evaluate("phi")
         assertEquals("1.6180339887", phiResult)
     }
+
+    @Test
+    fun testUserAcceptanceTests() {
+        // sin(30)=0.5
+        assertEquals("0.5", ExpressionEvaluator.evaluate("sin(30)", angleMode = AngleMode.DEGREE))
+        // cos(60)=0.5
+        assertEquals("0.5", ExpressionEvaluator.evaluate("cos(60)", angleMode = AngleMode.DEGREE))
+        // tan(45)=1
+        assertEquals("1", ExpressionEvaluator.evaluate("tan(45)", angleMode = AngleMode.DEGREE))
+        // sqrt(144)=12
+        assertEquals("12", ExpressionEvaluator.evaluate("sqrt(144)"))
+        // 5!=120
+        assertEquals("120", ExpressionEvaluator.evaluate("5!"))
+        // 10P3=720
+        assertEquals("720", ExpressionEvaluator.evaluate("10P3"))
+        // 10C3=120
+        assertEquals("120", ExpressionEvaluator.evaluate("10C3"))
+        // π×2=6.283185307
+        assertEquals("6.283185307", ExpressionEvaluator.evaluate("π×2", precision = 9))
+        // log(100)=2
+        assertEquals("2", ExpressionEvaluator.evaluate("log(100)"))
+        // ln(e)=1
+        assertEquals("1", ExpressionEvaluator.evaluate("ln(e)"))
+        // 2^(3+2)=32
+        assertEquals("32", ExpressionEvaluator.evaluate("2^(3+2)"))
+    }
 }

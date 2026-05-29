@@ -45,13 +45,29 @@ object ExpressionEvaluator {
     }
 
     private fun sanitizeExpression(expr: String): String {
-        return expr
+        var result = expr
             .replace("×", "*")
             .replace("÷", "/")
             .replace("π", "pi")
             .replace("e", "e")
             .replace("φ", "phi")
+            .replace("Rand", "random()")
+            .replace("rand", "random()")
             .trim()
+
+        // Match patterns like "10P3" or "10 P 3" or "10nPr3" or "10 nPr 3"
+        val pRegex = Regex("([0-9.]+)\\s*(?:nPr|P)\\s*([0-9.]+)")
+        while (pRegex.containsMatchIn(result)) {
+            result = result.replace(pRegex, "nPr($1,$2)")
+        }
+
+        // Match patterns like "10C3" or "10 C 3" or "10nCr3" or "10 nCr 3"
+        val cRegex = Regex("([0-9.]+)\\s*(?:nCr|C)\\s*([0-9.]+)")
+        while (cRegex.containsMatchIn(result)) {
+            result = result.replace(cRegex, "nCr($1,$2)")
+        }
+
+        return result
     }
 
     private fun formatResult(value: Double, precision: Int, useScientific: Boolean): String {

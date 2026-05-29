@@ -3,10 +3,12 @@ package com.ritikthakur.rtcalc.ui.view
 import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Search
@@ -16,11 +18,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ritikthakur.rtcalc.data.repository.AngleMode
 import com.ritikthakur.rtcalc.data.repository.ThemeMode
 import com.ritikthakur.rtcalc.ui.theme.DarkBackground
 import com.ritikthakur.rtcalc.ui.theme.LightBackground
@@ -52,6 +56,7 @@ fun CalculatorScreen(
     // Sheet and settings screen display states
     var showHistorySheet by remember { mutableStateOf(false) }
     var showSettingsScreen by remember { mutableStateOf(false) }
+    var isScientificExpanded by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
     // Responsive setup: landscape or tablet triggers scientific modes
@@ -267,6 +272,12 @@ fun CalculatorScreen(
                             onMemoryStore = { viewModel.onMemoryStore() },
                             onMemoryAdd = { viewModel.onMemoryAdd() },
                             onMemorySubtract = { viewModel.onMemorySubtract() },
+                            onAngleToggle = {
+                                viewModel.setAngleMode(
+                                    if (angleMode == AngleMode.DEGREE) AngleMode.RADIAN else AngleMode.DEGREE
+                                )
+                            },
+                            angleMode = angleMode,
                             hapticEnabled = hapticEnabled,
                             isDark = isDark,
                             isScientific = true
@@ -283,40 +294,147 @@ fun CalculatorScreen(
                     .navigationBarsPadding(),
                 verticalArrangement = Arrangement.Bottom
             ) {
-                // Large display showing expression & numbers
-                Display(
-                    expression = expression,
-                    displayValue = displayValue,
-                    modifier = Modifier.weight(1f)
-                )
+                // Large display showing expression & numbers with swipe gestures to expand/collapse scientific panel
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .pointerInput(Unit) {
+                            detectDragGestures { change, dragAmount ->
+                                change.consume()
+                                if (dragAmount.y < -20f) {
+                                    isScientificExpanded = true
+                                } else if (dragAmount.y > 20f) {
+                                    isScientificExpanded = false
+                                }
+                            }
+                        }
+                ) {
+                    Display(
+                        expression = expression,
+                        displayValue = displayValue,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
 
-                Spacer(modifier = Modifier.height(8.dp))
+                if (!isLandscape) {
+                    // Portrait Control Row for Scientific Mode and DEG/RAD Mode
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 4.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Button(
+                            onClick = {
+                                viewModel.setAngleMode(
+                                    if (angleMode == AngleMode.DEGREE) AngleMode.RADIAN else AngleMode.DEGREE
+                                )
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = if (isDark) Color(0xFF2C2C2E) else Color(0xFFE5E5EA),
+                                contentColor = MaterialTheme.colorScheme.onBackground
+                            ),
+                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Text(
+                                text = if (angleMode == AngleMode.DEGREE) "DEG" else "RAD",
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
 
-                // Standard or Scientific Keypad grid based on Orientation
+                        // Sliding indicator handle
+                        Box(
+                            modifier = Modifier
+                                .width(40.dp)
+                                .height(5.dp)
+                                .background(
+                                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f),
+                                    shape = RoundedCornerShape(2.5.dp)
+                                )
+                                .clickable { isScientificExpanded = !isScientificExpanded }
+                        )
+
+                        Button(
+                            onClick = { isScientificExpanded = !isScientificExpanded },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = if (isScientificExpanded) Orange else (if (isDark) Color(0xFF2C2C2E) else Color(0xFFE5E5EA)),
+                                contentColor = if (isScientificExpanded) Color.White else MaterialTheme.colorScheme.onBackground
+                            ),
+                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Text(
+                                text = "SCI",
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
+
+                // Standard or Scientific Keypad grid based on Orientation and expanded status
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp)
+                        .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
                 ) {
-                    Keypad(
-                        onDigitClick = { viewModel.onDigitClick(it) },
-                        onOperatorClick = { viewModel.onOperatorClick(it) },
-                        onDecimalClick = { viewModel.onDecimalClick() },
-                        onPercentageClick = { viewModel.onPercentageClick() },
-                        onToggleSignClick = { viewModel.onToggleSignClick() },
-                        onClearClick = { viewModel.onClearClick() },
-                        onEqualClick = { viewModel.onEqualClick() },
-                        onDeleteClick = { viewModel.onDeleteClick() },
-                        onFunctionClick = { viewModel.onFunctionClick(it) },
-                        onMemoryClear = { viewModel.onMemoryClear() },
-                        onMemoryRecall = { viewModel.onMemoryRecall() },
-                        onMemoryStore = { viewModel.onMemoryStore() },
-                        onMemoryAdd = { viewModel.onMemoryAdd() },
-                        onMemorySubtract = { viewModel.onMemorySubtract() },
-                        hapticEnabled = hapticEnabled,
-                        isDark = isDark,
-                        isScientific = isSciMode
-                    )
+                    Column {
+                        // Expandable scientific panel for portrait mobile mode
+                        if (!isLandscape) {
+                            androidx.compose.animation.AnimatedVisibility(
+                                visible = isScientificExpanded,
+                                enter = androidx.compose.animation.expandVertically() + androidx.compose.animation.fadeIn(),
+                                exit = androidx.compose.animation.shrinkVertically() + androidx.compose.animation.fadeOut()
+                            ) {
+                                ScientificPortraitPanel(
+                                    onFunctionClick = { viewModel.onFunctionClick(it) },
+                                    onMemoryClear = { viewModel.onMemoryClear() },
+                                    onMemoryRecall = { viewModel.onMemoryRecall() },
+                                    onMemoryStore = { viewModel.onMemoryStore() },
+                                    onMemoryAdd = { viewModel.onMemoryAdd() },
+                                    onMemorySubtract = { viewModel.onMemorySubtract() },
+                                    onAngleToggle = {
+                                        viewModel.setAngleMode(
+                                            if (angleMode == AngleMode.DEGREE) AngleMode.RADIAN else AngleMode.DEGREE
+                                        )
+                                    },
+                                    angleMode = angleMode,
+                                    hapticEnabled = hapticEnabled,
+                                    isDark = isDark
+                                )
+                                Spacer(modifier = Modifier.height(8.dp))
+                            }
+                        }
+
+                        Keypad(
+                            onDigitClick = { viewModel.onDigitClick(it) },
+                            onOperatorClick = { viewModel.onOperatorClick(it) },
+                            onDecimalClick = { viewModel.onDecimalClick() },
+                            onPercentageClick = { viewModel.onPercentageClick() },
+                            onToggleSignClick = { viewModel.onToggleSignClick() },
+                            onClearClick = { viewModel.onClearClick() },
+                            onEqualClick = { viewModel.onEqualClick() },
+                            onDeleteClick = { viewModel.onDeleteClick() },
+                            onFunctionClick = { viewModel.onFunctionClick(it) },
+                            onMemoryClear = { viewModel.onMemoryClear() },
+                            onMemoryRecall = { viewModel.onMemoryRecall() },
+                            onMemoryStore = { viewModel.onMemoryStore() },
+                            onMemoryAdd = { viewModel.onMemoryAdd() },
+                            onMemorySubtract = { viewModel.onMemorySubtract() },
+                            onAngleToggle = {
+                                viewModel.setAngleMode(
+                                    if (angleMode == AngleMode.DEGREE) AngleMode.RADIAN else AngleMode.DEGREE
+                                )
+                            },
+                            angleMode = angleMode,
+                            hapticEnabled = hapticEnabled,
+                            isDark = isDark,
+                            isScientific = isSciMode
+                        )
+                    }
                 }
             }
         }
