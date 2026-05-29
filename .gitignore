@@ -1,0 +1,20 @@
+# Build files
+build/
+dist/
+
+# Android
+.gradle/
+local.properties
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# APKs
+*.apk
+
+# Temporary files
+*.tmp
