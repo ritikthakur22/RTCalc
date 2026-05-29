@@ -16,13 +16,14 @@ A complete, production-ready scientific calculator and currency converter for An
 
 ✓ Standard Calculator
 ✓ Scientific Calculator
-✓ Currency Converter
+✓ Expression Editor
 ✓ History
-✓ Expression Editing
+✓ Currency Converter
+✓ NPR Support
+✓ Real-time Exchange Rates
 ✓ Undo / Redo
 ✓ Copy / Paste
 ✓ DEG / RAD
-✓ Real-time Exchange Rates
 ✓ Dark Theme
 ✓ Light Theme
 

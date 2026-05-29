@@ -48,7 +48,7 @@ object AppModule {
         val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
         
         return retrofit2.Retrofit.Builder()
-            .baseUrl("https://api.frankfurter.app/")
+            .baseUrl("https://open.er-api.com/v6/")
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
             .create(com.ritikthakur.rtcalc.data.remote.CurrencyApi::class.java)

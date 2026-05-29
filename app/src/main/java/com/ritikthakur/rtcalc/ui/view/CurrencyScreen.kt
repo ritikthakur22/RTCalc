@@ -11,6 +11,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -237,20 +239,71 @@ fun CurrencyPicker(
     onDismiss: () -> Unit,
     onSelect: (String) -> Unit
 ) {
+    var searchQuery by remember { mutableStateOf("") }
+    val popularCurrencies = listOf("USD", "EUR", "GBP", "INR", "NPR", "JPY", "AUD", "CAD", "CHF", "CNY")
+    
+    val filteredCurrencies = if (searchQuery.isEmpty()) {
+        currencies
+    } else {
+        currencies.filter { it.contains(searchQuery, ignoreCase = true) }
+    }
+
     ModalBottomSheet(onDismissRequest = onDismiss) {
-        LazyColumn(modifier = Modifier.fillMaxWidth()) {
-            items(currencies) { currency ->
-                Text(
-                    text = currency,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onSelect(currency) }
-                        .padding(16.dp),
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Medium
-                )
+        Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
+            OutlinedTextField(
+                value = searchQuery,
+                onValueChange = { searchQuery = it },
+                placeholder = { Text("Search currency...") },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            LazyColumn(modifier = Modifier.fillMaxWidth()) {
+                if (searchQuery.isEmpty()) {
+                    item {
+                        Text("Popular & Favorites", fontWeight = FontWeight.Bold, color = Orange, modifier = Modifier.padding(vertical = 8.dp))
+                    }
+                    items(popularCurrencies.filter { currencies.contains(it) }) { currency ->
+                        CurrencyRow(currency = currency, onClick = { onSelect(currency) })
+                    }
+                    item {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Divider(color = Color.Gray.copy(alpha = 0.2f))
+                        Text("All Currencies", fontWeight = FontWeight.Bold, color = Orange, modifier = Modifier.padding(vertical = 8.dp))
+                    }
+                }
+                
+                items(filteredCurrencies) { currency ->
+                    CurrencyRow(currency = currency, onClick = { onSelect(currency) })
+                }
+                item { Spacer(modifier = Modifier.height(32.dp)) }
             }
-            item { Spacer(modifier = Modifier.height(32.dp)) }
         }
     }
+}
+
+@Composable
+fun CurrencyRow(currency: String, onClick: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .padding(vertical = 12.dp, horizontal = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(text = getFlagEmojiForCurrency(currency), fontSize = 24.sp)
+        Spacer(modifier = Modifier.width(16.dp))
+        Text(text = currency, fontSize = 18.sp, fontWeight = FontWeight.Medium)
+    }
+}
+
+fun getFlagEmojiForCurrency(currencyCode: String): String {
+    if (currencyCode.length < 2) return "🏳️"
+    if (currencyCode == "EUR") return "🇪🇺"
+    val countryCode = currencyCode.substring(0, 2).uppercase()
+    val firstLetter = Character.codePointAt(countryCode, 0) - 0x41 + 0x1F1E6
+    val secondLetter = Character.codePointAt(countryCode, 1) - 0x41 + 0x1F1E6
+    return String(Character.toChars(firstLetter)) + String(Character.toChars(secondLetter))
 }

@@ -6,15 +6,14 @@ import retrofit2.http.Query
 
 @Serializable
 data class CurrencyResponse(
-    val amount: Double,
-    val base: String,
-    val date: String,
+    val result: String,
+    val base_code: String,
     val rates: Map<String, Double>
 )
 
 interface CurrencyApi {
-    @GET("latest")
+    @GET("latest/{base}")
     suspend fun getLatestRates(
-        @Query("from") base: String = "USD"
+        @retrofit2.http.Path("base") base: String = "USD"
     ): CurrencyResponse
 }
