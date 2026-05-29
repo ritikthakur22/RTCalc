@@ -6,7 +6,7 @@
 
 # Keep Hilt / Dagger components
 -keep class * extends dagger.hilt.components.SingletonComponent
--keep class * @dagger.hilt.EntryPoint public class *
+-keep @dagger.hilt.EntryPoint class * { *; }
 
 # Keep our Room entities to ensure they can be mapped from JSON/Cursor
 -keep class com.ritikthakur.rtcalc.data.local.HistoryEntity { *; }

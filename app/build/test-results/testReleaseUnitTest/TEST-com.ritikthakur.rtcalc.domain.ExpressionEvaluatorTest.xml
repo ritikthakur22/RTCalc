@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-05-29T12:46:03" hostname="admin" time="0.058">
+<testsuite name="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2026-05-29T13:58:54" hostname="admin" time="0.047">
   <properties/>
-  <testcase name="testPercentage" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.044"/>
-  <testcase name="testPercentageMultiplication" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.003"/>
-  <testcase name="testBasicAddition" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testPercentage" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.021"/>
+  <testcase name="testCombinationsAndPermutations" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testLogarithms" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.004"/>
+  <testcase name="testBasicAddition" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testFactorial" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
   <testcase name="testOperatorPrecedence" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
-  <testcase name="testDecimalOperations" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testTrigonometryRadians" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testConstants" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testInverseTrigDegrees" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testGcdAndLcm" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testDecimalOperations" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
   <testcase name="testDivisionByZero" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
   <testcase name="testBasicDivision" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
-  <testcase name="testTrailingOperatorStripping" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
-  <testcase name="testBasicMultiplication" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
-  <testcase name="testBasicSubtraction" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.003"/>
+  <testcase name="testTrigonometryDegrees" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testTrailingOperatorStripping" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testBasicMultiplication" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testBasicSubtraction" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
   <testcase name="testNegativeNumbers" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
-  <testcase name="testLargeNumberScaling" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.003"/>
+  <testcase name="testLargeNumberScaling" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

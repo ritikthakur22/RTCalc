@@ -3,6 +3,7 @@ package com.ritikthakur.rtcalc.data.local;
 import android.database.Cursor;
 import androidx.annotation.NonNull;
 import androidx.room.CoroutinesRoom;
+import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
@@ -32,6 +33,8 @@ public final class HistoryDao_Impl implements HistoryDao {
 
   private final EntityInsertionAdapter<HistoryEntity> __insertionAdapterOfHistoryEntity;
 
+  private final EntityDeletionOrUpdateAdapter<HistoryEntity> __deletionAdapterOfHistoryEntity;
+
   private final SharedSQLiteStatement __preparedStmtOfClearHistory;
 
   public HistoryDao_Impl(@NonNull final RoomDatabase __db) {
@@ -60,6 +63,19 @@ public final class HistoryDao_Impl implements HistoryDao {
         statement.bindLong(4, entity.getTimestamp());
       }
     };
+    this.__deletionAdapterOfHistoryEntity = new EntityDeletionOrUpdateAdapter<HistoryEntity>(__db) {
+      @Override
+      @NonNull
+      protected String createQuery() {
+        return "DELETE FROM `calculation_history` WHERE `id` = ?";
+      }
+
+      @Override
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @NonNull final HistoryEntity entity) {
+        statement.bindLong(1, entity.getId());
+      }
+    };
     this.__preparedStmtOfClearHistory = new SharedSQLiteStatement(__db) {
       @Override
       @NonNull
@@ -80,6 +96,25 @@ public final class HistoryDao_Impl implements HistoryDao {
         __db.beginTransaction();
         try {
           __insertionAdapterOfHistoryEntity.insert(history);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object deleteHistory(final HistoryEntity history,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __deletionAdapterOfHistoryEntity.handle(history);
           __db.setTransactionSuccessful();
           return Unit.INSTANCE;
         } finally {

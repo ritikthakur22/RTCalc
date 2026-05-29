@@ -1,46 +1,18 @@
 package com.ritikthakur.rtcalc.ui.view
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Divider
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.rememberModalBottomSheetState
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -66,20 +38,27 @@ fun CalculatorScreen(
     val configuration = LocalConfiguration.current
     val coroutineScope = rememberCoroutineScope()
     
-    // UI state flows
+    // UI state flows from ViewModel
     val expression by viewModel.expression.collectAsState()
     val displayValue by viewModel.displayValue.collectAsState()
     val historyList by viewModel.historyList.collectAsState()
     val themeMode by viewModel.themeMode.collectAsState()
     val hapticEnabled by viewModel.hapticEnabled.collectAsState()
+    val angleMode by viewModel.angleMode.collectAsState()
+    val decimalPrecision by viewModel.decimalPrecision.collectAsState()
+    val scientificNotation by viewModel.scientificNotation.collectAsState()
+    val searchQuery by viewModel.searchQuery.collectAsState()
 
-    // Sheet and settings dropdown states
+    // Sheet and settings screen display states
     var showHistorySheet by remember { mutableStateOf(false) }
+    var showSettingsScreen by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-    var showMenu by remember { mutableStateOf(false) }
 
-    // Screen classification: Tablet vs Phone (600dp boundary)
+    // Responsive setup: landscape or tablet triggers scientific modes
     val isTablet = configuration.screenWidthDp >= 600
+    val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+    val isSciMode = isTablet || isLandscape
+
     val systemDark = isSystemInDarkTheme()
     val isDark = when (themeMode) {
         ThemeMode.SYSTEM -> systemDark
@@ -89,6 +68,28 @@ fun CalculatorScreen(
 
     val backgroundColor = if (isDark) DarkBackground else LightBackground
 
+    // Show full screen settings overlay dialog
+    if (showSettingsScreen) {
+        androidx.compose.ui.window.Dialog(
+            onDismissRequest = { showSettingsScreen = false },
+            properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false)
+        ) {
+            SettingsScreen(
+                themeMode = themeMode,
+                angleMode = angleMode,
+                decimalPrecision = decimalPrecision,
+                hapticEnabled = hapticEnabled,
+                scientificNotation = scientificNotation,
+                onThemeChange = { viewModel.setThemeMode(it) },
+                onAngleChange = { viewModel.setAngleMode(it) },
+                onPrecisionChange = { viewModel.setDecimalPrecision(it) },
+                onHapticChange = { viewModel.setHapticEnabled(it) },
+                onScientificChange = { viewModel.setScientificNotation(it) },
+                onDismiss = { showSettingsScreen = false }
+            )
+        }
+    }
+
     Scaffold(
         modifier = modifier
             .fillMaxSize()
@@ -97,11 +98,26 @@ fun CalculatorScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        text = "RTCalc",
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onBackground
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = "RTCalc",
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onBackground
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        // Display active Angle mode indicator (RAD/DEG/GRAD)
+                        Badge(
+                            containerColor = Orange,
+                            contentColor = Color.White,
+                            modifier = Modifier.padding(horizontal = 4.dp)
+                        ) {
+                            Text(
+                                text = angleMode.name,
+                                fontSize = 10.sp,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                            )
+                        }
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent
@@ -118,53 +134,13 @@ fun CalculatorScreen(
                         }
                     }
 
-                    // Settings dropdown icon
-                    Box {
-                        IconButton(onClick = { showMenu = true }) {
-                            Icon(
-                                imageVector = Icons.Default.MoreVert,
-                                contentDescription = "Settings",
-                                tint = MaterialTheme.colorScheme.onBackground
-                            )
-                        }
-                        DropdownMenu(
-                            expanded = showMenu,
-                            onDismissRequest = { showMenu = false }
-                        ) {
-                            DropdownMenuItem(
-                                text = { Text("Light Mode") },
-                                onClick = {
-                                    viewModel.setThemeMode(ThemeMode.LIGHT)
-                                    showMenu = false
-                                }
-                            )
-                            DropdownMenuItem(
-                                text = { Text("Dark Mode") },
-                                onClick = {
-                                    viewModel.setThemeMode(ThemeMode.DARK)
-                                    showMenu = false
-                                }
-                            )
-                            DropdownMenuItem(
-                                text = { Text("System Theme") },
-                                onClick = {
-                                    viewModel.setThemeMode(ThemeMode.SYSTEM)
-                                    showMenu = false
-                                }
-                            )
-                            Divider()
-                            DropdownMenuItem(
-                                text = {
-                                    Text(
-                                        text = if (hapticEnabled) "Disable Haptic" else "Enable Haptic"
-                                    )
-                                },
-                                onClick = {
-                                    viewModel.setHapticEnabled(!hapticEnabled)
-                                    showMenu = false
-                                }
-                            )
-                        }
+                    // Settings gear icon
+                    IconButton(onClick = { showSettingsScreen = true }) {
+                        Icon(
+                            imageVector = Icons.Default.Settings,
+                            contentDescription = "Settings",
+                            tint = MaterialTheme.colorScheme.onBackground
+                        )
                     }
                 },
                 modifier = Modifier.statusBarsPadding()
@@ -180,10 +156,10 @@ fun CalculatorScreen(
                     .navigationBarsPadding(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                // Persistent History Panel (Left side)
+                // Persistent History Panel with Search Bar (Left side)
                 Column(
                     modifier = Modifier
-                        .weight(1.5f)
+                        .weight(1.2f)
                         .fillMaxHeight()
                         .padding(24.dp)
                 ) {
@@ -198,7 +174,7 @@ fun CalculatorScreen(
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onBackground
                         )
-                        if (historyList.isNotEmpty()) {
+                        if (historyList.isNotEmpty() || searchQuery.isNotEmpty()) {
                             Text(
                                 text = context.getString(com.ritikthakur.rtcalc.R.string.clear_history),
                                 fontSize = 14.sp,
@@ -210,6 +186,23 @@ fun CalculatorScreen(
                             )
                         }
                     }
+                    
+                    Spacer(modifier = Modifier.height(8.dp))
+                    
+                    // History Search Bar
+                    OutlinedTextField(
+                        value = searchQuery,
+                        onValueChange = { viewModel.setSearchQuery(it) },
+                        placeholder = { Text("Search history...") },
+                        leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Orange,
+                            cursorColor = Orange
+                        ),
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
                     Spacer(modifier = Modifier.height(16.dp))
                     Divider(color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f))
                     Spacer(modifier = Modifier.height(8.dp))
@@ -225,7 +218,8 @@ fun CalculatorScreen(
                                 HistoryRowItem(
                                     item = item,
                                     onClick = { viewModel.onHistoryItemSelect(item) },
-                                    onLongClick = {} // Handled via keyboard tap or click
+                                    onLongClick = {},
+                                    onDeleteClick = { viewModel.deleteHistoryItem(item) }
                                 )
                             }
                         }
@@ -240,10 +234,10 @@ fun CalculatorScreen(
                         .background(MaterialTheme.colorScheme.onBackground.copy(alpha = 0.1f))
                 )
 
-                // Calculator Panel (Right side)
+                // Scientific Calculator Panel (Right side)
                 Column(
                     modifier = Modifier
-                        .weight(2f)
+                        .weight(2.2f)
                         .fillMaxHeight()
                         .padding(24.dp),
                     verticalArrangement = Arrangement.Bottom,
@@ -256,7 +250,7 @@ fun CalculatorScreen(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Box(
-                        modifier = Modifier.widthIn(max = 440.dp)
+                        modifier = Modifier.fillMaxWidth()
                     ) {
                         Keypad(
                             onDigitClick = { viewModel.onDigitClick(it) },
@@ -267,14 +261,21 @@ fun CalculatorScreen(
                             onClearClick = { viewModel.onClearClick() },
                             onEqualClick = { viewModel.onEqualClick() },
                             onDeleteClick = { viewModel.onDeleteClick() },
+                            onFunctionClick = { viewModel.onFunctionClick(it) },
+                            onMemoryClear = { viewModel.onMemoryClear() },
+                            onMemoryRecall = { viewModel.onMemoryRecall() },
+                            onMemoryStore = { viewModel.onMemoryStore() },
+                            onMemoryAdd = { viewModel.onMemoryAdd() },
+                            onMemorySubtract = { viewModel.onMemorySubtract() },
                             hapticEnabled = hapticEnabled,
-                            isDark = isDark
+                            isDark = isDark,
+                            isScientific = true
                         )
                     }
                 }
             }
         } else {
-            // Mobile Layout: Traditional vertical structure
+            // Mobile Layout (Adaptive: Portrait Standard vs Landscape Scientific)
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -291,7 +292,7 @@ fun CalculatorScreen(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Standard Keypad grid
+                // Standard or Scientific Keypad grid based on Orientation
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -306,8 +307,15 @@ fun CalculatorScreen(
                         onClearClick = { viewModel.onClearClick() },
                         onEqualClick = { viewModel.onEqualClick() },
                         onDeleteClick = { viewModel.onDeleteClick() },
+                        onFunctionClick = { viewModel.onFunctionClick(it) },
+                        onMemoryClear = { viewModel.onMemoryClear() },
+                        onMemoryRecall = { viewModel.onMemoryRecall() },
+                        onMemoryStore = { viewModel.onMemoryStore() },
+                        onMemoryAdd = { viewModel.onMemoryAdd() },
+                        onMemorySubtract = { viewModel.onMemorySubtract() },
                         hapticEnabled = hapticEnabled,
-                        isDark = isDark
+                        isDark = isDark,
+                        isScientific = isSciMode
                     )
                 }
             }
@@ -318,6 +326,8 @@ fun CalculatorScreen(
     if (showHistorySheet && !isTablet) {
         HistoryBottomSheet(
             historyList = historyList,
+            searchQuery = searchQuery,
+            onSearchQueryChange = { viewModel.setSearchQuery(it) },
             sheetState = sheetState,
             onDismissRequest = {
                 coroutineScope.launch { sheetState.hide() }.invokeOnCompletion {
@@ -325,6 +335,7 @@ fun CalculatorScreen(
                 }
             },
             onHistoryItemClick = { viewModel.onHistoryItemSelect(it) },
+            onDeleteItemClick = { viewModel.deleteHistoryItem(it) },
             onClearHistoryClick = { viewModel.clearAllHistory() }
         )
     }

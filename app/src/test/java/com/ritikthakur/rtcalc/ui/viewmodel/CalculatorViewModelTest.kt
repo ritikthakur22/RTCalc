@@ -3,6 +3,7 @@ package com.ritikthakur.rtcalc.ui.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import com.ritikthakur.rtcalc.data.local.HistoryDao
 import com.ritikthakur.rtcalc.data.local.HistoryEntity
+import com.ritikthakur.rtcalc.data.repository.AngleMode
 import com.ritikthakur.rtcalc.data.repository.HistoryRepository
 import com.ritikthakur.rtcalc.data.repository.SettingsRepository
 import com.ritikthakur.rtcalc.data.repository.ThemeMode
@@ -16,6 +17,7 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
@@ -35,13 +37,21 @@ class CalculatorViewModelTest {
 
         // Mock HistoryDao for HistoryRepository
         val mockDao = Mockito.mock(HistoryDao::class.java)
-        Mockito.`when`(mockDao.getAllHistory()).thenReturn(flow { emit(emptyList<HistoryEntity>()) })
+        // Emit dummy history items for search tests
+        val dummyList = listOf(
+            HistoryEntity(id = 1, expression = "10+20", result = "30"),
+            HistoryEntity(id = 2, expression = "sin(90)", result = "1")
+        )
+        Mockito.`when`(mockDao.getAllHistory()).thenReturn(flow { emit(dummyList) })
         historyRepository = HistoryRepository(mockDao)
 
         // Mock SettingsRepository
         settingsRepository = Mockito.mock(SettingsRepository::class.java)
         Mockito.`when`(settingsRepository.themeModeFlow).thenReturn(MutableStateFlow(ThemeMode.SYSTEM))
         Mockito.`when`(settingsRepository.hapticEnabledFlow).thenReturn(MutableStateFlow(true))
+        Mockito.`when`(settingsRepository.angleModeFlow).thenReturn(MutableStateFlow(AngleMode.DEGREE))
+        Mockito.`when`(settingsRepository.decimalPrecisionFlow).thenReturn(MutableStateFlow(10))
+        Mockito.`when`(settingsRepository.scientificNotationFlow).thenReturn(MutableStateFlow(false))
 
         viewModel = CalculatorViewModel(
             historyRepository = historyRepository,
@@ -115,10 +125,42 @@ class CalculatorViewModelTest {
     }
 
     @Test
-    fun testClearResetsValues() = runTest {
-        viewModel.onDigitClick("8")
+    fun testScientificFunctionsAppendsCorrectly() = runTest {
+        viewModel.onFunctionClick("sin")
+        assertEquals("sin(", viewModel.expression.value)
+
         viewModel.onClearClick()
-        assertEquals("", viewModel.expression.value)
-        assertEquals("0", viewModel.displayValue.value)
+        viewModel.onFunctionClick("pi")
+        assertEquals("pi", viewModel.expression.value)
+    }
+
+    @Test
+    fun testMemoryOperations() = runTest {
+        viewModel.onDigitClick("5")
+        viewModel.onMemoryStore() // stores 5 in memory
+        
+        assertEquals("5", viewModel.memoryValue.value)
+        
+        viewModel.onClearClick()
+        viewModel.onMemoryRecall() // recalls 5 to active entry
+        assertEquals("5", viewModel.expression.value)
+        
+        viewModel.onMemoryClear() // clears memory
+        assertEquals("0", viewModel.memoryValue.value)
+    }
+
+    @Test
+    fun testHistorySearchQueryFiltering() = runTest {
+        // Initially should show all dummy items
+        assertEquals(2, viewModel.historyList.value.size)
+
+        // Filter by "sin"
+        viewModel.setSearchQuery("sin")
+        assertEquals(1, viewModel.historyList.value.size)
+        assertEquals("sin(90)", viewModel.historyList.value.first().expression)
+
+        // Filter by invalid text
+        viewModel.setSearchQuery("invalid")
+        assertTrue(viewModel.historyList.value.isEmpty())
     }
 }

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-05-29T12:46:00" hostname="admin" time="1.606">
+<testsuite name="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-05-29T13:58:51" hostname="admin" time="1.817">
   <properties/>
-  <testcase name="testDeleteBehavior" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="1.554"/>
-  <testcase name="testSecondOperandMultiDigitEntry" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.01"/>
-  <testcase name="testDecimalClickAppendsDot" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.01"/>
-  <testcase name="testClearResetsValues" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.009"/>
-  <testcase name="testStateRestoration" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.013"/>
-  <testcase name="testFirstOperandMultiDigitEntry" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.008"/>
+  <testcase name="testDeleteBehavior" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="1.698"/>
+  <testcase name="testSecondOperandMultiDigitEntry" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.015"/>
+  <testcase name="testDecimalClickAppendsDot" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.013"/>
+  <testcase name="testHistorySearchQueryFiltering" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.015"/>
+  <testcase name="testStateRestoration" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.033"/>
+  <testcase name="testMemoryOperations" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.017"/>
+  <testcase name="testFirstOperandMultiDigitEntry" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.012"/>
+  <testcase name="testScientificFunctionsAppendsCorrectly" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.012"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

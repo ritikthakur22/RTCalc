@@ -1,28 +1,17 @@
 package com.ritikthakur.rtcalc.ui.view
 
 import android.widget.Toast
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.combinedClickable
-import androidx.compose.material3.Divider
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.SheetState
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
@@ -40,13 +29,40 @@ import com.ritikthakur.rtcalc.ui.theme.Orange
 @Composable
 fun HistoryBottomSheet(
     historyList: List<HistoryEntity>,
+    searchQuery: String,
+    onSearchQueryChange: (String) -> Unit,
     sheetState: SheetState,
     onDismissRequest: () -> Unit,
     onHistoryItemClick: (HistoryEntity) -> Unit,
+    onDeleteItemClick: (HistoryEntity) -> Unit,
     onClearHistoryClick: () -> Unit
 ) {
     val context = LocalContext.current
     val clipboardManager = LocalClipboardManager.current
+    var showClearConfirm by remember { mutableStateOf(false) }
+
+    if (showClearConfirm) {
+        AlertDialog(
+            onDismissRequest = { showClearConfirm = false },
+            title = { Text("Clear History") },
+            text = { Text("Are you sure you want to permanently clear all calculation logs?") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        onClearHistoryClick()
+                        showClearConfirm = false
+                    }
+                ) {
+                    Text("Clear All", color = Orange, fontWeight = FontWeight.Bold)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showClearConfirm = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
 
     ModalBottomSheet(
         onDismissRequest = onDismissRequest,
@@ -72,18 +88,34 @@ fun HistoryBottomSheet(
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 
-                if (historyList.isNotEmpty()) {
+                if (historyList.isNotEmpty() || searchQuery.isNotEmpty()) {
                     Text(
                         text = context.getString(com.ritikthakur.rtcalc.R.string.clear_history),
                         fontSize = 16.sp,
                         fontWeight = FontWeight.SemiBold,
                         color = Orange,
                         modifier = Modifier.clickable {
-                            onClearHistoryClick()
+                            showClearConfirm = true
                         }
                     )
                 }
             }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // History Search Bar
+            OutlinedTextField(
+                value = searchQuery,
+                onValueChange = onSearchQueryChange,
+                placeholder = { Text("Search history...") },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                singleLine = true,
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Orange,
+                    cursorColor = Orange
+                ),
+                modifier = Modifier.fillMaxWidth()
+            )
 
             Spacer(modifier = Modifier.height(16.dp))
             Divider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f))
@@ -106,6 +138,9 @@ fun HistoryBottomSheet(
                             onLongClick = {
                                 clipboardManager.setText(AnnotatedString(item.result))
                                 Toast.makeText(context, context.getString(com.ritikthakur.rtcalc.R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
+                            },
+                            onDeleteClick = {
+                                onDeleteItemClick(item)
                             }
                         )
                     }
@@ -137,33 +172,46 @@ fun BoxEmptyHistory(modifier: Modifier = Modifier) {
 fun HistoryRowItem(
     item: HistoryEntity,
     onClick: () -> Unit,
-    onLongClick: () -> Unit
+    onLongClick: () -> Unit,
+    onDeleteClick: () -> Unit
 ) {
-    Column(
+    Row(
         modifier = Modifier
             .fillMaxWidth()
             .combinedClickable(
                 onClick = onClick,
                 onLongClick = onLongClick
             )
-            .padding(vertical = 8.dp),
-        horizontalAlignment = Alignment.End
+            .padding(vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        // Equation expression
-        Text(
-            text = item.expression,
-            fontSize = 16.sp,
-            color = LightTextSecondary,
-            textAlign = TextAlign.End
-        )
-        // Result output
-        Text(
-            text = "= ${item.result}",
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-            color = Orange,
-            textAlign = TextAlign.End,
-            modifier = Modifier.padding(top = 4.dp)
-        )
+        // Calculation output text details
+        Column(
+            modifier = Modifier.weight(1f),
+            horizontalAlignment = Alignment.Start
+        ) {
+            Text(
+                text = item.expression,
+                fontSize = 14.sp,
+                color = LightTextSecondary
+            )
+            Text(
+                text = "= ${item.result}",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                color = Orange,
+                modifier = Modifier.padding(top = 2.dp)
+            )
+        }
+
+        // Action Deletion Button
+        IconButton(onClick = onDeleteClick) {
+            Icon(
+                imageVector = Icons.Default.Delete,
+                contentDescription = "Delete",
+                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
+            )
+        }
     }
 }

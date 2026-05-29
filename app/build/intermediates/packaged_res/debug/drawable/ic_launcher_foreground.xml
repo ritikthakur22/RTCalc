@@ -5,69 +5,54 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- Central bounding box is from 18 to 90 (72dp) -->
+    <!-- Adaptive Icon Safe Zone: 18dp to 90dp (center 54, 54) -->
     
-    <!-- Outer Fintech Shield Border (Subtle Glow) -->
+    <!-- Outer Fintech Shield Card (Graphite Fill with Gold-Orange Stroke) -->
     <path
         android:strokeColor="#FF9F0A"
-        android:strokeWidth="1.5"
+        android:strokeWidth="2"
         android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#1F1F24"
         android:pathData="M24,24h60c4.4,0 8,3.6 8,8v60c0,4.4 -3.6,8 -8,8H24c-4.4,0 -8,-3.6 -8,-8V32c0,-4.4 3.6,-8 8,-8z" />
 
-    <!-- Inner Plate Shield -->
+    <!-- Stylized Math Accent Grid (Fintech Grid Background Lines) -->
     <path
-        android:fillColor="#1C1C1E"
-        android:pathData="M26,26h56c3.3,0 6,2.7 6,6v56c0,3.3 -2.7,6 -6,6H26c-3.3,0 -6,-2.7 -6,-6V32c0,-3.3 2.7,-6 6,-6z" />
+        android:strokeColor="#2E2E35"
+        android:strokeWidth="1"
+        android:pathData="M34,24v60 M54,24v60 M74,24v60 M24,44h60 M24,64h60" />
 
-    <!-- Stylized Monogram "R" -->
+    <!-- Stylized Bold "R" in White -->
     <path
         android:strokeColor="#FFFFFF"
-        android:strokeWidth="5"
+        android:strokeWidth="6"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
-        android:pathData="M38,34v30" />
-    <path
-        android:strokeColor="#FFFFFF"
-        android:strokeWidth="5"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:pathData="M38,34h10c3,0 5.5,2.5 5.5,5.5v0c0,3 -2.5,5.5 -5.5,5.5H38" />
-    <path
-        android:strokeColor="#FFFFFF"
-        android:strokeWidth="5"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:pathData="M45,45l11,19" />
+        android:pathData="M38,34v26 M38,34h11c2.8,0 5,2.2 5,5v0c0,2.8 -2.2,5 -5,5H38 M46,44l9,16" />
 
-    <!-- Stylized Monogram "T" -->
+    <!-- Stylized Bold "T" in White -->
     <path
         android:strokeColor="#FFFFFF"
-        android:strokeWidth="5"
+        android:strokeWidth="6"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
-        android:pathData="M58,34h18" />
-    <path
-        android:strokeColor="#FFFFFF"
-        android:strokeWidth="5"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:pathData="M67,34v30" />
+        android:pathData="M59,34h16 M67,34v26" />
 
-    <!-- Mathematical Fintech Division Accent (÷) in Orange -->
+    <!-- Orange Accent Division Sign (÷) below RT -->
     <path
         android:strokeColor="#FF9F0A"
-        android:strokeWidth="4"
+        android:strokeWidth="5"
         android:strokeLineCap="round"
-        android:pathData="M44,76h20" />
+        android:pathData="M44,74h20" />
     <path
         android:strokeColor="#FF9F0A"
-        android:strokeWidth="4"
+        android:strokeWidth="5"
         android:strokeLineCap="round"
-        android:pathData="M54,71h0.01" />
+        android:pathData="M54,68h0.01" />
     <path
         android:strokeColor="#FF9F0A"
-        android:strokeWidth="4"
+        android:strokeWidth="5"
         android:strokeLineCap="round"
-        android:pathData="M54,81h0.01" />
+        android:pathData="M54,80h0.01" />
 
 </vector>
