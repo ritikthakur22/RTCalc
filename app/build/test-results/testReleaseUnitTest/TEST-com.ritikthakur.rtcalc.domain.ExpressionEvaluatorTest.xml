@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-05-29T12:46:03" hostname="admin" time="0.058">
+  <properties/>
+  <testcase name="testPercentage" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.044"/>
+  <testcase name="testPercentageMultiplication" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.003"/>
+  <testcase name="testBasicAddition" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testOperatorPrecedence" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testDecimalOperations" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testDivisionByZero" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testBasicDivision" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testTrailingOperatorStripping" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.001"/>
+  <testcase name="testBasicMultiplication" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testBasicSubtraction" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.003"/>
+  <testcase name="testNegativeNumbers" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.0"/>
+  <testcase name="testLargeNumberScaling" classname="com.ritikthakur.rtcalc.domain.ExpressionEvaluatorTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RTCalc</string>
+    <string name="button_clear">AC</string>
+    <string name="button_delete">Del</string>
+    <string name="clear_history">Clear History</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="no_history">No calculation history yet</string>
+    <string name="settings_haptic">Haptic Feedback</string>
+    <string name="settings_theme">Dark Theme</string>
+    <string name="title_history">History</string>
+    <string name="title_settings">Settings</string>
+    <style name="Theme.RTCalc" parent="android:Theme.Material.Light.NoActionBar">
+        
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+</resources>

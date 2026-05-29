@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RTCalc</string>
+    <string name="title_history">History</string>
+    <string name="title_settings">Settings</string>
+    <string name="settings_theme">Dark Theme</string>
+    <string name="settings_haptic">Haptic Feedback</string>
+    <string name="button_clear">AC</string>
+    <string name="button_delete">Del</string>
+    <string name="no_history">No calculation history yet</string>
+    <string name="clear_history">Clear History</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+</resources>

@@ -1,0 +1,17 @@
+R_DEF: Internal format may change without notice
+local
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string button_clear
+string button_delete
+string clear_history
+string copied_to_clipboard
+string no_history
+string settings_haptic
+string settings_theme
+string title_history
+string title_settings
+style Theme.RTCalc
