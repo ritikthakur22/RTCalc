@@ -1,0 +1,406 @@
+--------- beginning of main
+05-29 21:26:46.637   854   959 E Light   : AmbienteLight: 0.000000
+--------- beginning of system
+05-29 21:26:46.701  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 161252188; UID 10234; state: DISABLED
+05-29 21:26:46.702  1407  2648 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=com.ritikthakur.rtcalc/.ui.MainActivity} from uid 2000
+05-29 21:26:46.702  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 265464455; UID 10234; state: DISABLED
+05-29 21:26:46.703  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 265452344; UID 10234; state: DISABLED
+05-29 21:26:46.703  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 266124927; UID 10234; state: DISABLED
+05-29 21:26:46.704  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 265451093; UID 10234; state: DISABLED
+05-29 21:26:46.704  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 265456536; UID 10234; state: DISABLED
+05-29 21:26:46.704  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 255940284; UID 10234; state: DISABLED
+05-29 21:26:46.705  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 236283604; UID 10234; state: DISABLED
+05-29 21:26:46.705  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 263959004; UID 10234; state: DISABLED
+05-29 21:26:46.706  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 264304459; UID 10234; state: DISABLED
+05-29 21:26:46.706  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 264301586; UID 10234; state: DISABLED
+05-29 21:26:46.706  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 254631730; UID 10234; state: DISABLED
+05-29 21:26:46.706  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 273509367; UID 10234; state: DISABLED
+05-29 21:26:46.706  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 263259275; UID 10234; state: DISABLED
+05-29 21:26:46.710  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 194480991; UID 10234; state: ENABLED
+05-29 21:26:46.711  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 174042980; UID 10234; state: DISABLED
+05-29 21:26:46.715  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 184838306; UID 10234; state: DISABLED
+05-29 21:26:46.716  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 185004937; UID 10234; state: DISABLED
+05-29 21:26:46.717  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 181136395; UID 10234; state: DISABLED
+05-29 21:26:46.717  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 174042936; UID 10234; state: DISABLED
+05-29 21:26:46.718  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 197654537; UID 10234; state: ENABLED
+05-29 21:26:46.721  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 205907456; UID 10234; state: ENABLED
+05-29 21:26:46.725  1407  1460 W libprocessgroup: Failed to open /dev/blkio//cgroup.procs: No such file or directory
+05-29 21:26:46.725  1619  1821 W Parcel  : Expecting binder but got null!
+05-29 21:26:46.725  1619  1762 W PackageManager: Failure retrieving resources for com.ritikthakur.rtcalc: Drawable com.ritikthakur.rtcalc:mipmap/ic_launcher_round with resource ID #0x7f0a0001
+05-29 21:26:46.727  1407 12636 D CompatibilityChangeReporter: Compat change id reported: 168419799; UID 10234; state: DISABLED
+05-29 21:26:46.727  1407 12636 D CompatibilityChangeReporter: Compat change id reported: 273564678; UID 10234; state: DISABLED
+05-29 21:26:46.729  1407 10244 D CoreBackPreview: Window{d3490b8 u0 Splash Screen com.ritikthakur.rtcalc}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@1ea21f6, mPriority=0}
+05-29 21:26:46.730   707   707 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:2.963657,dur:1012.26,max:500.07,min:15.09  
+05-29 21:26:46.737  1407  1448 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10234; state: DISABLED
+05-29 21:26:46.738  1407  1448 D CompatibilityChangeReporter: Compat change id reported: 177438394; UID 10234; state: DISABLED
+05-29 21:26:46.739  1407  1448 D CompatibilityChangeReporter: Compat change id reported: 135772972; UID 10234; state: DISABLED
+05-29 21:26:46.739  1407  1448 D CompatibilityChangeReporter: Compat change id reported: 135754954; UID 10234; state: ENABLED
+05-29 21:26:46.739  1407  1456 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10234; state: ENABLED
+05-29 21:26:46.744  1619  1821 E OpenGLRenderer: Unable to match the desired swap behavior.
+05-29 21:26:46.754   686   686 D Zygote  : Forked child process 29261
+05-29 21:26:46.755  1407  1456 I ActivityManager: Start proc 29261:com.ritikthakur.rtcalc/u0a234 for next-top-activity {com.ritikthakur.rtcalc/com.ritikthakur.rtcalc.ui.MainActivity}
+05-29 21:26:46.790 29261 29261 I ikthakur.rtcalc: Late-enabling -Xcheck:jni
+05-29 21:26:46.795   854   959 E Accelerometer: Acceleration: x:-1.438000, y:3.901000, z:9.245000]
+05-29 21:26:46.860   817   890 I adbd    : jdwp connection from 29261
+05-29 21:26:46.887  1407  1407 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10226; state: DISABLED
+05-29 21:26:46.887  1407  1407 D CompatibilityChangeReporter: Compat change id reported: 177438394; UID 10226; state: DISABLED
+05-29 21:26:46.887  1407  1407 D CompatibilityChangeReporter: Compat change id reported: 135772972; UID 10226; state: DISABLED
+05-29 21:26:46.888  1407  1407 D CompatibilityChangeReporter: Compat change id reported: 135754954; UID 10226; state: ENABLED
+05-29 21:26:46.888  1407  1456 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10226; state: ENABLED
+05-29 21:26:46.891 29261 29261 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10234; state: ENABLED
+05-29 21:26:46.896   686   686 D Zygote  : Forked child process 29280
+05-29 21:26:46.897  1407  1456 I ActivityManager: Start proc 29280:com.whatsapp.w4b/u0a226 for service {com.whatsapp.w4b/com.whatsapp.alarmservice.AlarmService}
+05-29 21:26:46.908 29261 29261 W ziparchive: Unable to open '/data/app/~~3VzbbThYfqAzjFM-P5-1TQ==/com.ritikthakur.rtcalc-1dNZvn69qYfpxNY7enWqMA==/base.dm': No such file or directory
+05-29 21:26:46.908 29261 29261 W ziparchive: Unable to open '/data/app/~~3VzbbThYfqAzjFM-P5-1TQ==/com.ritikthakur.rtcalc-1dNZvn69qYfpxNY7enWqMA==/base.dm': No such file or directory
+05-29 21:26:46.921 29280 29280 E om.whatsapp.w4b: Not starting debugger since process cannot load the jdwp agent.
+05-29 21:26:46.970   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:46.974   953  1045 D AAL     : 05-29 09:26:46.858 BL= 206,ESS= 256, 05-29 09:26:46.891 BL= 207,ESS= 256, 05-29 09:26:46.924 BL= 208,ESS= 256, 05-29 09:26:46.941 BL= 209,ESS= 256, 05-29 09:26:46.974 BL= 210,ESS= 256, 
+05-29 21:26:46.986 29280 29280 I LSPosed : Loading xposed for com.whatsapp.w4b/10226
+05-29 21:26:46.999 29280 29280 I LSPosed-Bridge: Loading legacy module com.wmods.wppenhacer from /data/app/~~Zz0TaYe9N8_3bzYTx-rBZA==/com.wmods.wppenhacer-Pm7jsfTC36ZeGeO9Ntw3vA==/base.apk
+05-29 21:26:47.117 29280 29280 W om.whatsapp.w4b: Unsupported class loader
+05-29 21:26:47.119 29280 29280 I LSPosed-Bridge:   Loading class com.wmods.wppenhacer.WppXposed
+05-29 21:26:47.124   953  1045 D AAL     : 05-29 09:26:47.008 BL= 211,ESS= 256, 05-29 09:26:47.041 BL= 212,ESS= 256, 05-29 09:26:47.058 BL= 213,ESS= 256, 05-29 09:26:47.091 BL= 214,ESS= 256, 05-29 09:26:47.124 BL= 215,ESS= 256, 
+05-29 21:26:47.160 29280 29280 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10226; state: ENABLED
+05-29 21:26:47.290  1407  6810 I GED     : ged_boost_gpu_freq, level 100, eOrigin 2, final_idx 31, oppidx_max 31, oppidx_min 0
+05-29 21:26:47.303   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:47.341   953  1045 D AAL     : 05-29 09:26:47.158 BL= 216,ESS= 256, 05-29 09:26:47.208 BL= 217,ESS= 256, 05-29 09:26:47.241 BL= 218,ESS= 256, 05-29 09:26:47.291 BL= 219,ESS= 256, 05-29 09:26:47.341 BL= 220,ESS= 256, 
+05-29 21:26:47.387 29280 29280 W ziparchive: Unable to open '/data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/split_config.arm64_v8a.dm': No such file or directory
+05-29 21:26:47.387 29280 29280 W ziparchive: Unable to open '/data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/split_config.arm64_v8a.dm': No such file or directory
+05-29 21:26:47.387 29280 29280 W om.whatsapp.w4b: Entry not found
+05-29 21:26:47.388 29280 29280 W ziparchive: Unable to open '/data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/split_config.xxhdpi.dm': No such file or directory
+05-29 21:26:47.388 29280 29280 W ziparchive: Unable to open '/data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/split_config.xxhdpi.dm': No such file or directory
+05-29 21:26:47.388 29280 29280 W om.whatsapp.w4b: Entry not found
+05-29 21:26:47.401 29280 29280 W om.whatsapp.w4b: JIT profile information will not be recorded: profile file does not exist.
+05-29 21:26:47.401 29280 29280 W om.whatsapp.w4b: JIT profile information will not be recorded: profile file does not exist.
+05-29 21:26:47.416 29280 29280 I LSPosed-Bridge: [•] This package: com.whatsapp.w4b
+05-29 21:26:47.450 28628 28628 W Notification: Use of stream types is deprecated for operations other than volume control
+05-29 21:26:47.450 28628 28628 W Notification: See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+05-29 21:26:47.451  1407  2648 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.slash.batterychargelimit/.ForegroundService
+05-29 21:26:47.459  1619  7327 D PowerUI : can't show warning due to - plugged: true status unknown: false
+05-29 21:26:47.482 29280 29280 I DexKit  : apkPath -> /data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/base.apk
+05-29 21:26:47.582 29261 29261 V GraphicsEnvironment: ANGLE Developer option for 'com.ritikthakur.rtcalc' set to: 'default'
+05-29 21:26:47.583 29261 29261 V GraphicsEnvironment: ANGLE GameManagerService for com.ritikthakur.rtcalc: false
+05-29 21:26:47.583 29261 29261 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+05-29 21:26:47.586 29261 29261 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+05-29 21:26:47.588 29261 29261 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+05-29 21:26:47.592   953  1045 D AAL     : 05-29 09:26:47.391 BL= 221,ESS= 256, 05-29 09:26:47.458 BL= 222,ESS= 256, 05-29 09:26:47.491 BL= 223,ESS= 256, 05-29 09:26:47.541 BL= 224,ESS= 256, 05-29 09:26:47.591 BL= 225,ESS= 256, 
+05-29 21:26:47.637   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:47.686  1619  1780 D LocalImageResolver: Couldn't use ImageDecoder for drawable, falling back to non-resized load.
+05-29 21:26:47.688  1619  1780 D LocalImageResolver: Couldn't use ImageDecoder for drawable, falling back to non-resized load.
+05-29 21:26:47.690  1619  1780 D LocalImageResolver: Couldn't use ImageDecoder for drawable, falling back to non-resized load.
+05-29 21:26:47.745   707   707 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:39.428131,dur:1014.50,max:197.04,min:13.22  
+05-29 21:26:47.825   953  1045 D AAL     : 05-29 09:26:47.625 BL= 226,ESS= 256, 05-29 09:26:47.678 BL= 227,ESS= 256, 05-29 09:26:47.725 BL= 228,ESS= 256, 05-29 09:26:47.775 BL= 229,ESS= 256, 05-29 09:26:47.825 BL= 230,ESS= 256, 
+05-29 21:26:47.840 29261 29261 D CompatibilityChangeReporter: Compat change id reported: 237531167; UID 10234; state: DISABLED
+05-29 21:26:47.847 29261 29312 W Parcel  : Expecting binder but got null!
+05-29 21:26:47.854  1407  2648 D CoreBackPreview: Window{1aff72e u0 com.ritikthakur.rtcalc/com.ritikthakur.rtcalc.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@6d6245c, mPriority=0}
+05-29 21:26:47.970   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:48.075   953  1045 D AAL     : 05-29 09:26:47.875 BL= 231,ESS= 256, 05-29 09:26:47.926 BL= 232,ESS= 256, 05-29 09:26:47.991 BL= 233,ESS= 256, 05-29 09:26:48.025 BL= 234,ESS= 256, 05-29 09:26:48.075 BL= 235,ESS= 256, 
+05-29 21:26:48.229 29261 29261 W ikthakur.rtcalc: Method java.lang.Object androidx.compose.runtime.snapshots.SnapshotStateMap.mutate(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:26:48.229 29261 29261 W ikthakur.rtcalc: Common causes for lock verification issues are non-optimized dex code
+05-29 21:26:48.229 29261 29261 W ikthakur.rtcalc: and incorrect proguard optimizations.
+05-29 21:26:48.229 29261 29261 W ikthakur.rtcalc: Method void androidx.compose.runtime.snapshots.SnapshotStateMap.update(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:26:48.231 29261 29261 W ikthakur.rtcalc: Method boolean androidx.compose.runtime.snapshots.SnapshotStateMap.removeIf$runtime_release(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:26:48.303   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:48.325   953  1045 D AAL     : 05-29 09:26:48.125 BL= 236,ESS= 256, 05-29 09:26:48.175 BL= 237,ESS= 256, 05-29 09:26:48.225 BL= 238,ESS= 256, 05-29 09:26:48.275 BL= 239,ESS= 256, 05-29 09:26:48.325 BL= 240,ESS= 256, 
+05-29 21:26:48.355  1407  1541 E WifiVendorHal: getWifiLinkLayerStats_1_6_Internal(l.1199) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+05-29 21:26:48.480 29280 29280 I LSPosed-Bridge: Injected 38 resources for array
+05-29 21:26:48.493 29280 29280 I LSPosed-Bridge: Injected 735 resources for string
+05-29 21:26:48.497 29280 29280 I LSPosed-Bridge: Injected 296 resources for drawable
+05-29 21:26:48.506 29280 29280 V GraphicsEnvironment: ANGLE Developer option for 'com.whatsapp.w4b' set to: 'default'
+05-29 21:26:48.507 29280 29280 V GraphicsEnvironment: ANGLE GameManagerService for com.whatsapp.w4b: false
+05-29 21:26:48.507 29280 29280 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+05-29 21:26:48.512 29280 29280 D NetworkSecurityConfig: Using Network Security Config from resource (name removed) debugBuild: false
+05-29 21:26:48.514 29280 29280 D NetworkSecurityConfig: Using Network Security Config from resource (name removed) debugBuild: false
+05-29 21:26:48.538 29280 29280 D CompatibilityChangeReporter: Compat change id reported: 183155436; UID 10226; state: ENABLED
+05-29 21:26:48.540 29280 29280 I FirebaseApp: Device unlocked: initializing all Firebase APIs for app [DEFAULT]
+05-29 21:26:48.544 29280 29280 I FirebaseInitProvider: FirebaseApp initialization successful
+05-29 21:26:48.559   953  1045 D AAL     : 05-29 09:26:48.358 BL= 241,ESS= 256, 05-29 09:26:48.408 BL= 242,ESS= 256, 05-29 09:26:48.458 BL= 243,ESS= 256, 05-29 09:26:48.508 BL= 244,ESS= 256, 05-29 09:26:48.559 BL= 245,ESS= 256, 
+05-29 21:26:48.631 29261 29261 W ikthakur.rtcalc: Accessing hidden method Ljava/lang/invoke/MethodHandles$Lookup;-><init>(Ljava/lang/Class;I)V (unsupported, reflection, allowed)
+05-29 21:26:48.637   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:48.725 29280 29280 I LSPosed-Bridge: 2.26.19.73
+05-29 21:26:48.733  1407 10623 D CompatibilityChangeReporter: Compat change id reported: 161145287; UID 10226; state: DISABLED
+05-29 21:26:48.792   953  1045 D AAL     : 05-29 09:26:48.608 BL= 246,ESS= 256, 05-29 09:26:48.658 BL= 247,ESS= 256, 05-29 09:26:48.708 BL= 248,ESS= 256, 05-29 09:26:48.742 BL= 249,ESS= 256, 05-29 09:26:48.792 BL= 250,ESS= 256, 
+--------- beginning of crash
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: FATAL EXCEPTION: OkHttp Dispatcher
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: Process: com.ritikthakur.rtcalc, PID: 29261
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: java.lang.SecurityException: Permission denied (missing INTERNET permission?)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at java.net.Inet6AddressImpl.lookupHostByName(Inet6AddressImpl.java:150)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:103)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at java.net.InetAddress.getAllByName(InetAddress.java:1152)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.Dns$Companion$DnsSystem.lookup(Dns.kt:49)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.RouteSelector.resetNextInetSocketAddress(RouteSelector.kt:169)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.RouteSelector.nextProxy(RouteSelector.kt:131)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.RouteSelector.next(RouteSelector.kt:73)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.ExchangeFinder.findConnection(ExchangeFinder.kt:205)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.ExchangeFinder.findHealthyConnection(ExchangeFinder.kt:106)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.ExchangeFinder.find(ExchangeFinder.kt:74)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:255)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:517)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1137)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:637)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1012)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: Caused by: android.system.GaiException: android_getaddrinfo failed: EAI_NODATA (No address associated with hostname)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at libcore.io.Linux.android_getaddrinfo(Native Method)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at libcore.io.ForwardingOs.android_getaddrinfo(ForwardingOs.java:133)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at libcore.io.BlockGuardOs.android_getaddrinfo(BlockGuardOs.java:222)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at libcore.io.ForwardingOs.android_getaddrinfo(ForwardingOs.java:133)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	at java.net.Inet6AddressImpl.lookupHostByName(Inet6AddressImpl.java:135)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	... 23 more
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: Caused by: android.system.ErrnoException: android_getaddrinfo failed: EPERM (Operation not permitted)
+05-29 21:26:48.806 29261 29342 E AndroidRuntime: 	... 28 more
+05-29 21:26:48.812  1407 29344 I DropBoxManagerService: add tag=data_app_crash isTagEnabled=true flags=0x2
+05-29 21:26:48.812  1407  2648 W ActivityTaskManager:   Force finishing activity com.ritikthakur.rtcalc/.ui.MainActivity
+05-29 21:26:48.833 29261 29342 I Process : Sending signal. PID: 29261 SIG: 9
+05-29 21:26:48.833  1407  1455 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.stats.service.DropBoxEntryAddedReceiver
+05-29 21:26:48.834 29280 29280 I LSPosed-Bridge: ActionUser: X.BnJ
+05-29 21:26:48.837  1407  6810 I GED     : ged_boost_gpu_freq, level 100, eOrigin 2, final_idx 31, oppidx_max 31, oppidx_min 0
+05-29 21:26:48.841  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 168419799; UID 10131; state: DISABLED
+05-29 21:26:48.842  1407  2648 D CompatibilityChangeReporter: Compat change id reported: 273564678; UID 10131; state: DISABLED
+05-29 21:26:48.848   707   707 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:2.718826,dur:1103.42,max:969.26,min:17.67  
+05-29 21:26:48.870  1407  1436 I ActivityManager: Process com.ritikthakur.rtcalc (pid 29261) has died: fg  TOP 
+05-29 21:26:48.871  1407  2442 I WindowManager: WIN DEATH: Window{1aff72e u0 com.ritikthakur.rtcalc/com.ritikthakur.rtcalc.ui.MainActivity}
+05-29 21:26:48.871  1407  2442 W InputManager-JNI: Input channel object '1aff72e com.ritikthakur.rtcalc/com.ritikthakur.rtcalc.ui.MainActivity (client)' was disposed without first being removed with the input manager!
+05-29 21:26:48.871  1407  1457 I libprocessgroup: Successfully killed process cgroup uid 10234 pid 29261 in 0ms
+05-29 21:26:48.871   686   686 I Zygote  : Process 29261 exited due to signal 9 (Killed)
+05-29 21:26:48.876 29280 29280 I LSPosed-Bridge: Trying to connect to BridgeClientKt
+05-29 21:26:48.885  1407  1448 W ActivityManager: setHasOverlayUi called on unknown pid: 29261
+05-29 21:26:48.885  1407  1460 W libprocessgroup: Failed to open /dev/blkio//cgroup.procs: No such file or directory
+05-29 21:26:48.892  1407  2648 D CoreBackPreview: Window{d3490b8 u0 Splash Screen com.ritikthakur.rtcalc EXITING}: Setting back callback null
+05-29 21:26:48.892  1407 10623 W InputManager-JNI: Input channel object 'd3490b8 Splash Screen com.ritikthakur.rtcalc (client)' was disposed without first being removed with the input manager!
+05-29 21:26:48.894 28925 28941 E OpenGLRenderer: Unable to match the desired swap behavior.
+05-29 21:26:48.913  1407 10623 I ActivityTaskManager: START u0 {flg=0x18010000 cmp=com.wmods.wppenhacer/.activities.ForceStartActivity} from uid 10226
+05-29 21:26:48.916  1407 10623 W ActivityTaskManager: Background activity start [callingPackage: com.whatsapp.w4b; callingUid: 10226; appSwitchState: 2; isCallingUidForeground: false; callingUidHasAnyVisibleWindow: false; callingUidProcState: TRANSIENT_BACKGROUND; isCallingUidPersistentSystemProcess: false; realCallingUid: 10226; isRealCallingUidForeground: false; realCallingUidHasAnyVisibleWindow: false; realCallingUidProcState: TRANSIENT_BACKGROUND; isRealCallingUidPersistentSystemProcess: false; originatingPendingIntent: null; allowBackgroundActivityStart: false; intent: Intent { flg=0x18010000 cmp=com.wmods.wppenhacer/.activities.ForceStartActivity }; callerApp: ProcessRecord{ee2eee7 29280:com.whatsapp.w4b/u0a226}; inVisibleTask: false]
+05-29 21:26:48.924  1407 10623 E ActivityTaskManager: Abort background activity starts from 10226
+05-29 21:26:48.935 29280 29294 I LSPosed-Bridge: Service Connected: com.wmods.wppenhacer.xposed.bridge.WaeIIFace$Stub$Proxy@ee16ade
+05-29 21:26:48.946 29280 29280 I LSPosed-Bridge: Loading Plugins
+05-29 21:26:48.951 29280 29357 I LSPosed-Bridge: [Contact Item Listener] X.1EQ->A0G(X.0GB,X.0GB,X.1Id,java.lang.String,int,boolean,boolean)
+05-29 21:26:48.951 29280 29357 I Vector-lsposed: Contact Item Listener-> X.1EQ->A0G(X.0GB,X.0GB,X.1Id,java.lang.String,int,boolean,boolean)
+05-29 21:26:48.952 29280 29357 I LSPosed-Bridge: [Contact Item Listener] X.1EO->A0A:X.1Do
+05-29 21:26:48.952 29280 29357 I Vector-lsposed: Contact Item Listener-> X.1EO->A0A:X.1Do
+05-29 21:26:48.955 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:48.957 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:48.958 29280 29356 I LSPosed-Bridge: [Show Edit Message] X.0xc->A01(X.0yH)
+05-29 21:26:48.959 29280 29356 I Vector-lsposed: Show Edit Message-> X.0xc->A01(X.0yH)
+05-29 21:26:48.960 29280 29356 I LSPosed-Bridge: [Show Edit Message] X.Bvb->A00(X.0yH)
+05-29 21:26:48.960 29280 29356 I Vector-lsposed: Show Edit Message-> X.Bvb->A00(X.0yH)
+05-29 21:26:48.961 29280 29356 I LSPosed-Bridge: [Show Edit Message] X.Bvb->A00(X.0yH)
+05-29 21:26:48.961 29280 29356 I Vector-lsposed: Show Edit Message-> X.Bvb->A00(X.0yH)
+05-29 21:26:48.963 29280 29356 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:48.968 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:48.970   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:48.985 29280 29359 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:48.987 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:48.988 29280 29356 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:48.992 29280 29359 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:48.998 29280 29358 I LSPosed-Bridge: [Typing Privacy] X.5fW->A01(X.0Fv,X.5fW,int,boolean)
+05-29 21:26:48.998 29280 29358 I Vector-lsposed: Typing Privacy-> X.5fW->A01(X.0Fv,X.5fW,int,boolean)
+05-29 21:26:49.003 29280 29358 I LSPosed-Bridge: [Tag Message] X.0yH->A0F(long)
+05-29 21:26:49.003 29280 29358 I Vector-lsposed: Tag Message-> X.0yH->A0F(long)
+05-29 21:26:49.004 29280 29358 I LSPosed-Bridge: [Tag Message] ForwardClass: X.4xt
+05-29 21:26:49.004 29280 29358 I Vector-lsposed: Tag Message-> ForwardClass: X.4xt
+05-29 21:26:49.005 29280 29359 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.005 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.006 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.011 29280 29359 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.018 29280 29356 I LSPosed-Bridge: [Others] X.00C->A0B(X.00E,X.00C,java.lang.Boolean,int)
+05-29 21:26:49.018 29280 29356 I Vector-lsposed: Others-> X.00C->A0B(X.00E,X.00C,java.lang.Boolean,int)
+05-29 21:26:49.018 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.019 29280 29359 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.020 29280 29359 I LSPosed-Bridge: [Seconds To Time] X.A54->A00(X.00Q,long)
+05-29 21:26:49.020 29280 29359 I Vector-lsposed: Seconds To Time-> X.A54->A00(X.00Q,long)
+05-29 21:26:49.023 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.026   953  1045 D AAL     : 05-29 09:26:48.842 BL= 251,ESS= 256, 05-29 09:26:48.892 BL= 252,ESS= 256, 05-29 09:26:48.976 BL= 251,ESS= 256, 05-29 09:26:49.009 BL= 250,ESS= 256, 05-29 09:26:49.026 BL= 249,ESS= 256, 
+05-29 21:26:49.028 29280 29359 I LSPosed-Bridge: [View Once] X.1Nf->CS3(int)
+05-29 21:26:49.028 29280 29359 I Vector-lsposed: View Once-> X.1Nf->CS3(int)
+05-29 21:26:49.029 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.031 29280 29358 I LSPosed-Bridge: [Media Quality] X.0kT->A03(X.07j,X.Jnb,java.lang.Integer,java.lang.Integer,int,int,int)
+05-29 21:26:49.031 29280 29358 I Vector-lsposed: Media Quality-> X.0kT->A03(X.07j,X.Jnb,java.lang.Integer,java.lang.Integer,int,int,int)
+05-29 21:26:49.031 29280 29356 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.033 29280 29359 I LSPosed-Bridge: [View Once] X.1Ni->CS3(int)
+05-29 21:26:49.033 29280 29359 I Vector-lsposed: View Once-> X.1Ni->CS3(int)
+05-29 21:26:49.035 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.035 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.036 29280 29359 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.036 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.036 29280 29359 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.036 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.036 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.037 29280 29359 I LSPosed-Bridge: [View Once] X.1Nl->CS3(int)
+05-29 21:26:49.037 29280 29359 I Vector-lsposed: View Once-> X.1Nl->CS3(int)
+05-29 21:26:49.039 29280 29359 I LSPosed-Bridge: [View Once] X.1Nq->CS3(int)
+05-29 21:26:49.039 29280 29359 I Vector-lsposed: View Once-> X.1Nq->CS3(int)
+05-29 21:26:49.050 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.054 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.056 29280 29359 I LSPosed-Bridge: [] X.4Je->A0W(android.view.LayoutInflater,android.view.ViewGroup)
+05-29 21:26:49.056 29280 29359 I Vector-lsposed: -> X.4Je->A0W(android.view.LayoutInflater,android.view.ViewGroup)
+05-29 21:26:49.059 29280 29356 I LSPosed-Bridge: [Others] X.1EQ->A0G(X.0GB,X.0GB,X.1Id,java.lang.String,int,boolean,boolean)
+05-29 21:26:49.059 29280 29356 I Vector-lsposed: Others-> X.1EQ->A0G(X.0GB,X.0GB,X.1Id,java.lang.String,int,boolean,boolean)
+05-29 21:26:49.060 29280 29356 I LSPosed-Bridge: [Others] X.1EO->A0A:X.1Do
+05-29 21:26:49.060 29280 29356 I Vector-lsposed: Others-> X.1EO->A0A:X.1Do
+05-29 21:26:49.060 29280 29358 I om.whatsapp.w4b: Waiting for a blocking GC Debugger
+05-29 21:26:49.065 29280 29357 I om.whatsapp.w4b: Waiting for a blocking GC ClassLinker
+05-29 21:26:49.078 29280 29358 I LSPosed-Bridge: [Call Recording] WaEnhancer: Call Recording is disabled
+05-29 21:26:49.078 29280 29358 I Vector-lsposed: Call Recording-> WaEnhancer: Call Recording is disabled
+05-29 21:26:49.078 29280 29356 I LSPosed-Bridge: WAE: Found potential DeleteForMe method: A07
+05-29 21:26:49.080 29280 29356 I LSPosed-Bridge: WAE: RecoverDeleteForMe hooked A06 OK
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin DebugFeature in 1ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ConversationItemListener in 3ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ContactItemListener in 8ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin MenuStatusListener in 7ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ShowEditMessage in 15ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin AntiRevoke in 16ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin BubbleColors in 1ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin CustomToolbar in 23ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin CustomView in 26ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin CallPrivacy in 16ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ActivityController in 10ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ChatLimit in 9ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin SeparateGroup in 5ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin DndMode in 0ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin FreezeLastSeen in 1ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ShowOnline in 2ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin HideChat in 0ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin SeenTick in 35ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin TypingPrivacy in 6ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin TagMessage in 5ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin HideTabs in 2ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin HideSeenView in 10ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin IGStatus in 2ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin CustomThemeV2 in 29ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin LiteMode in 4ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin NewChat in 4ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin HideSeen in 21ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin CustomTime in 2ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ShareLimit in 0ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin StatusDownload in 4ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin PinnedLimit in 22ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin CallType in 2ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ViewOnce in 15ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin MediaQuality in 31ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin Tasker in 1ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin DeleteStatus in 1ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin FilterGroups in 3ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin Channels in 2ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin DownloadViewOnce in 4ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin DownloadProfile in 3ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ChatFilters in 3ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin GroupAdmin in 2ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin MediaPreview in 15ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin TextStatusComposer in 2ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin Stickers in 8ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin CopyStatus in 7ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin AntiWa in 1ms
+05-29 21:26:49.094 29280 29280 I LSPosed-Bridge: * Loaded Plugin ToastViewer in 8ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin MenuHome in 8ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin AudioTranscript in 4ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin GoogleTranslate in 1ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin LockedChatsEnhancer in 1ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin Others in 59ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin BackupRestore in 0ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin ContactBlockedVerify in 7ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin CallRecording in 7ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin CustomPrivacy in 16ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin JumpFirstMessage in 1ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin RecoverDeleteForMe in 6ms
+05-29 21:26:49.095 29280 29280 I LSPosed-Bridge: * Loaded Plugin AboutContactPicker in 15ms
+05-29 21:26:49.096 29280 29280 I LSPosed-Bridge: Loaded Hooks in 360ms
+05-29 21:26:49.169 29280 29280 E om.whatsapp.w4b: No implementation found for void com.facebook.quicklog.QuickPerformanceLoggerNativeProvider.nativeUpdateQPLInstance() (tried Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance and Java_com_facebook_quicklog_QuickPerformanceLoggerNativeProvider_nativeUpdateQPLInstance__)
+05-29 21:26:49.169 29280 29280 W QPLProvider: QuickPerformanceLoggerProvider failed to update native QPL instance, native library. This is expected during early app initialization
+05-29 21:26:49.173 29280 29280 W SoLoader: Initializing SoLoader: 0
+05-29 21:26:49.173 29280 29280 I SoLoader: Recording new base apk path: /data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/base.apk
+05-29 21:26:49.173 29280 29280 I SoLoader: Previously recorded 0 base apk paths.
+05-29 21:26:49.175 29280 29280 I SoLoader: Preparing SO source: DirectorySoSource[root = /vendor/lib64 flags = 2]
+05-29 21:26:49.175 29280 29280 I SoLoader: Preparing SO source: DirectorySoSource[root = /system_ext/lib64 flags = 2]
+05-29 21:26:49.176 29280 29280 I SoLoader: Preparing SO source: DirectorySoSource[root = /system/lib64 flags = 2]
+05-29 21:26:49.176 29280 29280 I SoLoader: Preparing SO source: DirectApkSoSource[root = [/data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/base.apk!/lib/arm64-v8a, /data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/split_config.arm64_v8a.apk!/lib/arm64-v8a, /data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/split_config.xxhdpi.apk!/lib/arm64-v8a]]
+05-29 21:26:49.192   953  1045 D AAL     : 05-29 09:26:49.060 BL= 248,ESS= 256, 05-29 09:26:49.093 BL= 247,ESS= 256, 05-29 09:26:49.109 BL= 246,ESS= 256, 05-29 09:26:49.142 BL= 245,ESS= 256, 05-29 09:26:49.192 BL= 244,ESS= 256, 
+05-29 21:26:49.303   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:49.315  1407  1448 W ActivityTaskManager: Activity top resumed state loss timeout for ActivityRecord{39b5d2a u0 com.ritikthakur.rtcalc/.ui.MainActivity} t-1 f}}
+05-29 21:26:49.320 29280 29280 I SoLoader: Preparing SO source: ApplicationSoSource[DirectorySoSource[root = /data/app/~~fvE_SipeukgDhsqsN4YuDg==/com.whatsapp.w4b-J8_S817mtcoPb12LSTMSiA==/lib/arm64 flags = 0]]
+05-29 21:26:49.320 29280 29280 W SoLoader: SoLoader initialized: 8
+05-29 21:26:49.333 29280 29280 W SoLoader: Loading wa_log on the main thread
+05-29 21:26:49.338 29280 29280 W SoLoader: Loading essential on the main thread
+05-29 21:26:49.335 29280 29280 W om.whatsapp.w4b: type=1400 audit(0.0:107392): avc: granted { execute } for path="/data/data/com.whatsapp.w4b/files/decompressed/libs.spo/libwa_log.so" dev="dm-31" ino=38244 scontext=u:r:untrusted_app:s0:c226,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c226,c256,c512,c768 tclass=file app=com.whatsapp.w4b
+05-29 21:26:49.343 29280 29280 W om.whatsapp.w4b: type=1400 audit(0.0:107393): avc: granted { execute } for path="/data/data/com.whatsapp.w4b/files/decompressed/libs.spo/libc++_shared.so" dev="dm-31" ino=37963 scontext=u:r:untrusted_app:s0:c226,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c226,c256,c512,c768 tclass=file app=com.whatsapp.w4b
+05-29 21:26:49.347 29280 29280 W om.whatsapp.w4b: type=1400 audit(0.0:107394): avc: granted { execute } for path="/data/data/com.whatsapp.w4b/files/decompressed/libs.spo/libfbjni.so" dev="dm-31" ino=25056 scontext=u:r:untrusted_app:s0:c226,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c226,c256,c512,c768 tclass=file app=com.whatsapp.w4b
+05-29 21:26:49.347 29280 29280 W om.whatsapp.w4b: type=1400 audit(0.0:107395): avc: granted { execute } for path="/data/data/com.whatsapp.w4b/files/decompressed/libs.spo/libfbsofterror.so" dev="dm-31" ino=44739 scontext=u:r:untrusted_app:s0:c226,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c226,c256,c512,c768 tclass=file app=com.whatsapp.w4b
+05-29 21:26:49.351 29280 29280 W om.whatsapp.w4b: type=1400 audit(0.0:107396): avc: granted { execute } for path="/data/data/com.whatsapp.w4b/files/decompressed/libs.spo/libglog.so" dev="dm-31" ino=43856 scontext=u:r:untrusted_app:s0:c226,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c226,c256,c512,c768 tclass=file app=com.whatsapp.w4b
+05-29 21:26:49.354 29280 29280 W SoLoader: Loading fb on the main thread
+05-29 21:26:49.355 29280 29280 I om.whatsapp.w4b: Thread[1,tid=29280,Native,Thread*=0xb40000703d23bc00,peer=0x72ccd1f8,"main"] recursive attempt to load library "/data/data/com.whatsapp.w4b/files/decompressed/libs.spo/libfb.so"
+05-29 21:26:49.358 29280 29280 I essential-jni: JNI_OnLoad start
+05-29 21:26:49.359 29280 29280 I essential-jni: fbjni lambda running
+05-29 21:26:49.359 29280 29280 D SigquitBasedANRDetector: Registered
+05-29 21:26:49.359 29280 29280 I essential-jni: JNI_OnLoad lambda complete
+05-29 21:26:49.370 29280 29280 D SigquitBasedANRDetector: Initialized
+05-29 21:26:49.373 29280 29280 I SigquitBasedANRDetector: Function PaletteWriteCrashThreadStacks hooked with result=0
+05-29 21:26:49.373 29280 29280 D SigquitBasedANRDetector: Detector started
+05-29 21:26:49.375 29280 29280 W SoLoader: Loading rtvip on the main thread
+05-29 21:26:49.376   953  1045 D AAL     : 05-29 09:26:49.195 BL= 243,ESS= 256, 05-29 09:26:49.226 BL= 242,ESS= 256, 05-29 09:26:49.276 BL= 241,ESS= 256, 05-29 09:26:49.327 BL= 240,ESS= 256, 05-29 09:26:49.376 BL= 239,ESS= 256, 
+05-29 21:26:49.379 29280 29280 W SoLoader: Loading rtvip on the main thread
+05-29 21:26:49.380 29280 29280 I rtvip   : done
+05-29 21:26:49.380 29280 29280 W SoLoader: Loading vlc on the main thread
+05-29 21:26:49.383 29280 29280 W SoLoader: Loading native_utils on the main thread
+05-29 21:26:49.386 29280 29280 W SoLoader: Loading curve25519 on the main thread
+05-29 21:26:49.477 29280 29363 W libc    : Access denied finding property "ro.hardware.chipname"
+05-29 21:26:49.602 29280 29372 I WhatsAppJni: EnsureThreadAttached: attached current thread to JVM
+05-29 21:26:49.624 29280 29374 I WhatsAppJni: EnsureThreadAttached: attached current thread to JVM
+05-29 21:26:49.626 29280 29373 I WhatsAppJni: EnsureThreadAttached: attached current thread to JVM
+05-29 21:26:49.626   953  1045 D AAL     : 05-29 09:26:49.426 BL= 238,ESS= 256, 05-29 09:26:49.476 BL= 237,ESS= 256, 05-29 09:26:49.526 BL= 236,ESS= 256, 05-29 09:26:49.576 BL= 235,ESS= 256, 05-29 09:26:49.626 BL= 234,ESS= 256, 
+05-29 21:26:49.637   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:26:49.674 29280 29371 I PlayCore: UID: [10226]  PID: [29280] SplitInstallListenerRegistry : registerListener
+05-29 21:26:49.707  1407 10628 D ConnectivityService: requestNetwork for uid/pid:10226/29280 activeRequest: null callbackRequest: 20014 [NetworkRequest [ REQUEST id=20015, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10226 RequestorUid: 10226 RequestorPkg: com.whatsapp.w4b UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+05-29 21:26:49.707  1407  1549 D ConnectivityService: NetReassign [20015 : null → 282]
+05-29 21:26:49.710  1962  1962 D PhoneSwitcherNetworkRequstListener: got request NetworkRequest [ REQUEST id=20015, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10226 RequestorUid: 10226 RequestorPkg: com.whatsapp.w4b UnderlyingNetworks: Null] ]
+05-29 21:26:49.711  1407  1541 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=20015, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10226 RequestorUid: 10226 RequestorPkg: com.whatsapp.w4b UnderlyingNetworks: Null] ]
+05-29 21:26:49.711  1407  1541 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=20015, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10226 RequestorUid: 10226 RequestorPkg: com.whatsapp.w4b UnderlyingNetworks: Null] ]
+05-29 21:26:49.712  1407  1541 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=20015, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10226 RequestorUid: 10226 RequestorPkg: com.whatsapp.w4b UnderlyingNetworks: Null] ]
+05-29 21:26:49.712  1407  1541 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=20015, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10226 RequestorUid: 10226 RequestorPkg: com.whatsapp.w4b UnderlyingNetworks: Null] ]
+05-29 21:26:49.719 29280 29386 D CompatibilityChangeReporter: Compat change id reported: 160794467; UID 10226; state: ENABLED
+05-29 21:26:49.729  1407  1436 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcastMultiplePermissions:1222 com.android.server.TelephonyRegistry.broadcastServiceStateChanged:3085 com.android.server.TelephonyRegistry.notifyServiceStateForPhoneId:1616 com.android.internal.telephony.ITelephonyRegistry$Stub.onTransact:492 android.os.Binder.execTransactInternal:1285 
+05-29 21:26:49.730  1407  1436 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcastMultiplePermissions:1272 android.content.Context.sendBroadcastMultiplePermissions:2281 com.android.server.TelephonyRegistry.broadcastServiceStateChanged:3089 com.android.server.TelephonyRegistry.notifyServiceStateForPhoneId:1616 com.android.internal.telephony.ITelephonyRegistry$Stub.onTransact:492 
+05-29 21:26:49.730  1407  1455 W BroadcastQueue: Permission Denial: receiving Intent { act=android.intent.action.SERVICE_STATE flg=0x1000010 (has extras) } to ProcessRecord{3ffb4a 1619:com.android.systemui/u0a152} (pid=1619, uid=10152) requires android.permission.ACCESS_FINE_LOCATION due to sender android (uid 1001)
+05-29 21:26:49.731  1407  1455 W BroadcastQueue: Permission Denial: receiving Intent { act=android.intent.action.SERVICE_STATE flg=0x1000010 (has extras) } to com.android.cellbroadcastreceiver.module/com.android.cellbroadcastreceiver.CellBroadcastReceiver requires android.permission.READ_PHONE_STATE due to sender android (uid 1001)
+05-29 21:26:49.731  1407  1455 W BroadcastQueue: Permission Denial: receiving Intent { act=android.intent.action.SERVICE_STATE flg=0x1000010 (has extras) } to ProcessRecord{3ffb4a 1619:com.android.systemui/u0a152} (pid=1619, uid=10152) requires android.permission.ACCESS_FINE_LOCATION due to sender android (uid 1001)
+05-29 21:26:49.732  1407  1455 W BroadcastQueue: Permission Denial: receiving Intent { act=android.intent.action.SERVICE_STATE flg=0x1000010 (has extras) } to com.android.cellbroadcastreceiver.module/com.android.cellbroadcastreceiver.CellBroadcastReceiver requires android.permission.ACCESS_FINE_LOCATION due to sender android (uid 1001)
+05-29 21:26:49.732  1407  1436 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcastMultiplePermissions:1272 android.content.Context.sendBroadcastMultiplePermissions:2281 com.android.server.TelephonyRegistry.broadcastServiceStateChanged:3096 com.android.server.TelephonyRegistry.notifyServiceStateForPhoneId:1616 com.android.internal.telephony.ITelephonyRegistry$Stub.onTransact:492 
+05-29 21:26:49.732  1407  1436 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcastMultiplePermissions:1272 android.content.Context.sendBroadcastMultiplePermissions:2281 com.android.server.TelephonyRegistry.broadcastServiceStateChanged:3100 com.android.server.TelephonyRegistry.notifyServiceStateForPhoneId:1616 com.android.internal.telephony.ITelephonyRegistry$Stub.onTransact:492 
+05-29 21:26:49.733  1407  1455 W BroadcastQueue: Permission Denial: receiving Intent { act=android.intent.action.SERVICE_STATE flg=0x1000010 (has extras) } to com.android.cellbroadcastreceiver.module/com.android.cellbroadcastreceiver.CellBroadcastReceiver requires android.permission.READ_PHONE_STATE due to sender android (uid 1001)
+05-29 21:26:49.734  1407  1455 W BroadcastQueue: Appop Denial: receiving Intent { act=android.intent.action.SERVICE_STATE flg=0x1000010 (has extras) } to ProcessRecord{3ffb4a 1619:com.android.systemui/u0a152} (pid=1619, uid=10152) excludes appop android:read_phone_state due to sender android (uid 1001)
+05-29 21:26:49.734  1962  1962 D ServiceStateProvider: subId=2
+05-29 21:26:49.738 25137 25137 D CellBroadcastReceiver: onReceive Intent { act=android.intent.action.SERVICE_STATE flg=0x1000010 cmp=com.android.cellbroadcastreceiver.module/com.android.cellbroadcastreceiver.CellBroadcastReceiver (has extras) }
+05-29 21:26:49.738 25137 25137 D CellBroadcastReceiver: onServiceStateChanged, ss: 0
+05-29 21:26:49.738 25137 25137 D CellBroadcastReceiver: networkOperator: 42901
+05-29 21:26:49.741  1962  1962 I Telephony: isRttCurrentlySupported -- regular acct, hasVoiceAvailability: false
+05-29 21:26:49.741  1962  1962 I Telephony:  isRttSupported: false
+05-29 21:26:49.741  1962  1962 I Telephony:  alwaysAllowWhileRoaming: false
+05-29 21:26:49.741  1962  1962 I Telephony:  isRoaming: false
+05-29 21:26:49.741  1962  1962 I Telephony:  isOnWfc: false
+05-29 21:26:49.741 25137 25137 D CellBroadcastReceiver: update supported roaming operator as 
+05-29 21:26:49.764 29280 29382 E msys    : E[ADNSUCTIMH WAJMNSRuntime]WAJContextInitMNSRuntime(446)=>[LogLevel:I] Secondary DNS resolver enabled
+05-29 21:26:49.764   431 21268 E vold    : Failed to set project id on /data/media/0/Android/data/com.whatsapp.w4b/: Operation not supported on transport endpoint
+05-29 21:26:49.764 29280 29382 E msys    : E[N WA]_WAJMNSStreamImplMNSTCPStreamCreate(361)=>[LogLevel:I] WAJMNSStream/impl/tcpStreamCreate/MNSStreamRaw/p=0xb400006f9efe9200
+05-29 21:26:49.764 29280 29382 E msys    : E[N WA]WAJMNSStreamImplCreate(421)=>[LogLevel:I] WAJMNSStream/impl/create/p=0xb400006f9efe9200 (mnsConn=0xb400006f9efef080)
+05-29 21:26:49.765 29280 29382 E msys    : E[N WA]_WAJMNSStreamCreateMnsIpsFromIpAddressStrings(87)=>[LogLevel:I] no ip addresses provided, using DNS resolution
+05-29 21:26:49.765 29280 29364 W ContextImpl: Failed to ensure /storage/emulated/0/Android/data/com.whatsapp.w4b/cache: android.os.ServiceSpecificException:  (code -1)
+05-29 21:26:49.767 29280 29382 E msys    : E[N WA]WAJMNSStreamImplConnect(450)=>[LogLevel:I] WAJMNSStream/impl/connect/p=0xb400006f9efe9200 (endpoint=g.whatsapp.net:443)(ipAddressCount=0)
+05-29 21:26:49.768 29280 29382 E msys    : E[N WA]_WAJMNSStreamImplUpdateStreamState(230)=>[LogLevel:I] WAJMNSStream/impl/state-changed/p=0xb400006f9efe9200 (initial=>connecting)
+05-29 21:26:49.789 29280 29381 E QPLProvider: QuickPerformanceLogger instance replaced at runtime, this leads to data loss and incorrect telemetry. Initial QPL instance X.NXG@9e0e22f, replacing by X.Inm@904d03c
+05-29 21:26:49.789 29280 29381 E QPLProvider: java.lang.RuntimeException: QPL instance is replaced in runtime
+05-29 21:26:49.789 29280 29381 E QPLProvider: 	at X.1GE.A01(:77)
+05-29 21:26:49.789 29280 29381 E QPLProvider: 	at X.CoD.run(:3234)
+05-29 21:26:49.789 29280 29381 E QPLProvider: 	at X.A6G.run(:2)
+05-29 21:26:49.789 29280 29381 E QPLProvider: 	at X.1lS.run(:47)
+05-29 21:26:49.789 29280 29381 E QPLProvider: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1137)
+05-29 21:26:49.789 29280 29381 E QPLProvider: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:637)
+05-29 21:26:49.789 29280 29381 E QPLProvider: 	at X.1mw.run(:3295)
+05-29 21:26:49.789 29280 29381 E QPLProvider: 	at java.lang.Thread.run(Thread.java:1012)
+05-29 21:26:49.792 29280 29398 E msys    : E[N mns]_OnResolverSuccess(317)=>Cache refresh succeeded with system DNS resolver. IP count: 1

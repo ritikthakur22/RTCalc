@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
@@ -36,6 +37,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun CalculatorScreen(
     viewModel: CalculatorViewModel,
+    onMenuClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
@@ -55,8 +57,6 @@ fun CalculatorScreen(
     val searchQuery by viewModel.searchQuery.collectAsState()
 
     // Sheet and settings screen display states
-    var showHistorySheet by remember { mutableStateOf(false) }
-    var showSettingsScreen by remember { mutableStateOf(false) }
     var isScientificExpanded by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
@@ -74,27 +74,7 @@ fun CalculatorScreen(
 
     val backgroundColor = if (isDark) DarkBackground else LightBackground
 
-    // Show full screen settings overlay dialog
-    if (showSettingsScreen) {
-        androidx.compose.ui.window.Dialog(
-            onDismissRequest = { showSettingsScreen = false },
-            properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false)
-        ) {
-            SettingsScreen(
-                themeMode = themeMode,
-                angleMode = angleMode,
-                decimalPrecision = decimalPrecision,
-                hapticEnabled = hapticEnabled,
-                scientificNotation = scientificNotation,
-                onThemeChange = { viewModel.setThemeMode(it) },
-                onAngleChange = { viewModel.setAngleMode(it) },
-                onPrecisionChange = { viewModel.setDecimalPrecision(it) },
-                onHapticChange = { viewModel.setHapticEnabled(it) },
-                onScientificChange = { viewModel.setScientificNotation(it) },
-                onDismiss = { showSettingsScreen = false }
-            )
-        }
-    }
+    // Settings and History moved to drawer/NavHost routes
 
     Scaffold(
         modifier = modifier
@@ -103,6 +83,15 @@ fun CalculatorScreen(
         containerColor = backgroundColor,
         topBar = {
             TopAppBar(
+                navigationIcon = {
+                    IconButton(onClick = onMenuClick) {
+                        Icon(
+                            imageVector = Icons.Default.Menu,
+                            contentDescription = "Menu",
+                            tint = MaterialTheme.colorScheme.onBackground
+                        )
+                    }
+                },
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
@@ -128,27 +117,6 @@ fun CalculatorScreen(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent
                 ),
-                actions = {
-                    // Show history shortcut only on mobile (since history is side-by-side on tablet)
-                    if (!isTablet) {
-                        IconButton(onClick = { showHistorySheet = true }) {
-                            Icon(
-                                imageVector = Icons.Default.List,
-                                contentDescription = "History",
-                                tint = MaterialTheme.colorScheme.onBackground
-                            )
-                        }
-                    }
-
-                    // Settings gear icon
-                    IconButton(onClick = { showSettingsScreen = true }) {
-                        Icon(
-                            imageVector = Icons.Default.Settings,
-                            contentDescription = "Settings",
-                            tint = MaterialTheme.colorScheme.onBackground
-                        )
-                    }
-                },
                 modifier = Modifier.statusBarsPadding()
             )
         }
@@ -440,23 +408,7 @@ fun CalculatorScreen(
         }
     }
 
-    // Modal Bottom Sheet displaying history on mobile devices
-    if (showHistorySheet && !isTablet) {
-        HistoryBottomSheet(
-            historyList = historyList,
-            searchQuery = searchQuery,
-            onSearchQueryChange = { viewModel.setSearchQuery(it) },
-            sheetState = sheetState,
-            onDismissRequest = {
-                coroutineScope.launch { sheetState.hide() }.invokeOnCompletion {
-                    showHistorySheet = false
-                }
-            },
-            onHistoryItemClick = { viewModel.onHistoryItemSelect(it) },
-            onDeleteItemClick = { viewModel.deleteHistoryItem(it) },
-            onClearHistoryClick = { viewModel.clearAllHistory() }
-        )
-    }
+    // Modal Bottom Sheet displaying history on mobile devices removed. History is a separate screen.
 
     // Modal Bottom Sheet displaying scientific functions on mobile devices
     if (isScientificExpanded && !isLandscape && !isTablet) {

@@ -27,9 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ritikthakur.rtcalc.ui.theme.*
 
-private fun triggerVibration(view: android.view.View) {
-    view.performHapticFeedback(android.view.HapticFeedbackConstants.KEYBOARD_TAP)
-}
+
 
 @Composable
 fun Keypad(
@@ -116,8 +114,8 @@ fun Keypad(
 
         val stdButtons = listOf(
             listOf(
-                CalcButtonData("AC", utilityBg, utilityText) { onClearClick() },
-                CalcButtonData("⌫", utilityBg, utilityText) { onDeleteClick() },
+                CalcButtonData("AC", utilityBg, utilityText, onLongClick = { onClearClick() }) { onClearClick() },
+                CalcButtonData("⌫", utilityBg, utilityText, onLongClick = { onClearClick() }) { onDeleteClick() },
                 CalcButtonData("%", utilityBg, utilityText) { onPercentageClick() },
                 CalcButtonData("÷", operationBg, operationText) { onOperatorClick("÷") }
             ),
@@ -199,8 +197,8 @@ fun Keypad(
         // Portrait Mobile Standard Grid
         val buttonRows = listOf(
             listOf(
-                CalcButtonData("AC", utilityBg, utilityText) { onClearClick() },
-                CalcButtonData("⌫", utilityBg, utilityText) { onDeleteClick() },
+                CalcButtonData("AC", utilityBg, utilityText, onLongClick = { onClearClick() }) { onClearClick() },
+                CalcButtonData("⌫", utilityBg, utilityText, onLongClick = { onClearClick() }) { onDeleteClick() },
                 CalcButtonData("%", utilityBg, utilityText) { onPercentageClick() },
                 CalcButtonData("÷", operationBg, operationText) { onOperatorClick("÷") }
             ),
@@ -366,6 +364,7 @@ data class CalcButtonData(
     val text: String,
     val backgroundColor: Color,
     val textColor: Color,
+    val onLongClick: (() -> Unit)? = null,
     val onClick: () -> Unit
 )
 
@@ -377,7 +376,7 @@ fun CalcButton(
     isSciBtn: Boolean,
     modifier: Modifier = Modifier
 ) {
-    val view = LocalView.current
+    val hapticManager = com.ritikthakur.rtcalc.ui.LocalHapticManager.current
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
 
@@ -406,9 +405,16 @@ fun CalcButton(
             .combinedClickable(
                 interactionSource = interactionSource,
                 indication = null,
+                onLongClick = {
+                    if (hapticEnabled) {
+                        hapticManager.performLongPress()
+                    }
+                    data.onLongClick?.invoke()
+                },
                 onClick = {
                     if (hapticEnabled) {
-                        triggerVibration(view)
+                        if (data.text == "⌫" || data.text == "AC") hapticManager.performDelete()
+                        else hapticManager.performKeyPress()
                     }
                     data.onClick()
                 }

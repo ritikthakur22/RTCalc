@@ -6,16 +6,25 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
+import com.ritikthakur.rtcalc.data.local.CurrencyDao;
 import com.ritikthakur.rtcalc.data.local.HistoryDao;
 import com.ritikthakur.rtcalc.data.local.HistoryDatabase;
+import com.ritikthakur.rtcalc.data.remote.CurrencyApi;
+import com.ritikthakur.rtcalc.data.repository.CurrencyRepository;
 import com.ritikthakur.rtcalc.data.repository.HistoryRepository;
 import com.ritikthakur.rtcalc.data.repository.SettingsRepository;
 import com.ritikthakur.rtcalc.di.AppModule;
+import com.ritikthakur.rtcalc.di.AppModule_ProvideCurrencyApiFactory;
+import com.ritikthakur.rtcalc.di.AppModule_ProvideCurrencyDaoFactory;
 import com.ritikthakur.rtcalc.di.AppModule_ProvideHistoryDaoFactory;
 import com.ritikthakur.rtcalc.di.AppModule_ProvideHistoryDatabaseFactory;
 import com.ritikthakur.rtcalc.ui.MainActivity;
+import com.ritikthakur.rtcalc.ui.MainActivity_MembersInjector;
 import com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModel;
 import com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModel_HiltModules_KeyModule_ProvideFactory;
+import com.ritikthakur.rtcalc.ui.viewmodel.CurrencyViewModel;
+import com.ritikthakur.rtcalc.ui.viewmodel.CurrencyViewModel_HiltModules_KeyModule_ProvideFactory;
+import com.ritikthakur.rtcalc.util.HapticManager;
 import dagger.hilt.android.ActivityRetainedLifecycle;
 import dagger.hilt.android.ViewModelLifecycle;
 import dagger.hilt.android.flags.HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule;
@@ -33,7 +42,9 @@ import dagger.hilt.android.internal.modules.ApplicationContextModule;
 import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideContextFactory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
+import dagger.internal.MapBuilder;
 import dagger.internal.Preconditions;
+import dagger.internal.SetBuilder;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
@@ -371,6 +382,7 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
 
     @Override
     public void injectMainActivity(MainActivity mainActivity) {
+      injectMainActivity2(mainActivity);
     }
 
     @Override
@@ -380,7 +392,7 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return Collections.<String>singleton(CalculatorViewModel_HiltModules_KeyModule_ProvideFactory.provide());
+      return SetBuilder.<String>newSetBuilder(2).add(CalculatorViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(CurrencyViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
     }
 
     @Override
@@ -397,6 +409,11 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
     public ViewComponentBuilder viewComponentBuilder() {
       return new ViewCBuilder(singletonCImpl, activityRetainedCImpl, activityCImpl);
     }
+
+    private MainActivity injectMainActivity2(MainActivity instance) {
+      MainActivity_MembersInjector.injectHapticManager(instance, singletonCImpl.hapticManagerProvider.get());
+      return instance;
+    }
   }
 
   private static final class ViewModelCImpl extends RTCalcApp_HiltComponents.ViewModelC {
@@ -409,6 +426,8 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
     private final ViewModelCImpl viewModelCImpl = this;
 
     private Provider<CalculatorViewModel> calculatorViewModelProvider;
+
+    private Provider<CurrencyViewModel> currencyViewModelProvider;
 
     private ViewModelCImpl(SingletonCImpl singletonCImpl,
         ActivityRetainedCImpl activityRetainedCImpl, SavedStateHandle savedStateHandleParam,
@@ -424,11 +443,12 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
     private void initialize(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
       this.calculatorViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
+      this.currencyViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
     }
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return Collections.<String, Provider<ViewModel>>singletonMap("com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModel", ((Provider) calculatorViewModelProvider));
+      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(2).put("com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModel", ((Provider) calculatorViewModelProvider)).put("com.ritikthakur.rtcalc.ui.viewmodel.CurrencyViewModel", ((Provider) currencyViewModelProvider)).build();
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -454,6 +474,9 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
         switch (id) {
           case 0: // com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModel 
           return (T) new CalculatorViewModel(singletonCImpl.historyRepositoryProvider.get(), singletonCImpl.settingsRepositoryProvider.get(), viewModelCImpl.savedStateHandle);
+
+          case 1: // com.ritikthakur.rtcalc.ui.viewmodel.CurrencyViewModel 
+          return (T) new CurrencyViewModel(singletonCImpl.currencyRepositoryProvider.get());
 
           default: throw new AssertionError(id);
         }
@@ -534,6 +557,8 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
 
     private final SingletonCImpl singletonCImpl = this;
 
+    private Provider<HapticManager> hapticManagerProvider;
+
     private Provider<HistoryDatabase> provideHistoryDatabaseProvider;
 
     private Provider<HistoryDao> provideHistoryDaoProvider;
@@ -541,6 +566,12 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
     private Provider<HistoryRepository> historyRepositoryProvider;
 
     private Provider<SettingsRepository> settingsRepositoryProvider;
+
+    private Provider<CurrencyApi> provideCurrencyApiProvider;
+
+    private Provider<CurrencyDao> provideCurrencyDaoProvider;
+
+    private Provider<CurrencyRepository> currencyRepositoryProvider;
 
     private SingletonCImpl(ApplicationContextModule applicationContextModuleParam) {
       this.applicationContextModule = applicationContextModuleParam;
@@ -550,10 +581,14 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
 
     @SuppressWarnings("unchecked")
     private void initialize(final ApplicationContextModule applicationContextModuleParam) {
-      this.provideHistoryDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<HistoryDatabase>(singletonCImpl, 2));
-      this.provideHistoryDaoProvider = DoubleCheck.provider(new SwitchingProvider<HistoryDao>(singletonCImpl, 1));
-      this.historyRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<HistoryRepository>(singletonCImpl, 0));
-      this.settingsRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<SettingsRepository>(singletonCImpl, 3));
+      this.hapticManagerProvider = DoubleCheck.provider(new SwitchingProvider<HapticManager>(singletonCImpl, 0));
+      this.provideHistoryDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<HistoryDatabase>(singletonCImpl, 3));
+      this.provideHistoryDaoProvider = DoubleCheck.provider(new SwitchingProvider<HistoryDao>(singletonCImpl, 2));
+      this.historyRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<HistoryRepository>(singletonCImpl, 1));
+      this.settingsRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<SettingsRepository>(singletonCImpl, 4));
+      this.provideCurrencyApiProvider = DoubleCheck.provider(new SwitchingProvider<CurrencyApi>(singletonCImpl, 6));
+      this.provideCurrencyDaoProvider = DoubleCheck.provider(new SwitchingProvider<CurrencyDao>(singletonCImpl, 7));
+      this.currencyRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<CurrencyRepository>(singletonCImpl, 5));
     }
 
     @Override
@@ -589,17 +624,29 @@ public final class DaggerRTCalcApp_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.ritikthakur.rtcalc.data.repository.HistoryRepository 
+          case 0: // com.ritikthakur.rtcalc.util.HapticManager 
+          return (T) new HapticManager(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 1: // com.ritikthakur.rtcalc.data.repository.HistoryRepository 
           return (T) new HistoryRepository(singletonCImpl.provideHistoryDaoProvider.get());
 
-          case 1: // com.ritikthakur.rtcalc.data.local.HistoryDao 
+          case 2: // com.ritikthakur.rtcalc.data.local.HistoryDao 
           return (T) AppModule_ProvideHistoryDaoFactory.provideHistoryDao(singletonCImpl.provideHistoryDatabaseProvider.get());
 
-          case 2: // com.ritikthakur.rtcalc.data.local.HistoryDatabase 
+          case 3: // com.ritikthakur.rtcalc.data.local.HistoryDatabase 
           return (T) AppModule_ProvideHistoryDatabaseFactory.provideHistoryDatabase(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
-          case 3: // com.ritikthakur.rtcalc.data.repository.SettingsRepository 
+          case 4: // com.ritikthakur.rtcalc.data.repository.SettingsRepository 
           return (T) new SettingsRepository(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 5: // com.ritikthakur.rtcalc.data.repository.CurrencyRepository 
+          return (T) new CurrencyRepository(singletonCImpl.provideCurrencyApiProvider.get(), singletonCImpl.provideCurrencyDaoProvider.get());
+
+          case 6: // com.ritikthakur.rtcalc.data.remote.CurrencyApi 
+          return (T) AppModule_ProvideCurrencyApiFactory.provideCurrencyApi();
+
+          case 7: // com.ritikthakur.rtcalc.data.local.CurrencyDao 
+          return (T) AppModule_ProvideCurrencyDaoFactory.provideCurrencyDao(singletonCImpl.provideHistoryDatabaseProvider.get());
 
           default: throw new AssertionError(id);
         }

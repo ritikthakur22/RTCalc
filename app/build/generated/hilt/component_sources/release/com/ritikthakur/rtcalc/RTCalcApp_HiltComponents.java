@@ -3,6 +3,7 @@ package com.ritikthakur.rtcalc;
 import com.ritikthakur.rtcalc.di.AppModule;
 import com.ritikthakur.rtcalc.ui.MainActivity_GeneratedInjector;
 import com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModel_HiltModules;
+import com.ritikthakur.rtcalc.ui.viewmodel.CurrencyViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
 import dagger.Module;
@@ -154,6 +155,7 @@ public final class RTCalcApp_HiltComponents {
   @Subcomponent(
       modules = {
           CalculatorViewModel_HiltModules.KeyModule.class,
+          CurrencyViewModel_HiltModules.KeyModule.class,
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class
@@ -193,6 +195,7 @@ public final class RTCalcApp_HiltComponents {
   @Subcomponent(
       modules = {
           CalculatorViewModel_HiltModules.BindsModule.class,
+          CurrencyViewModel_HiltModules.BindsModule.class,
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class
       }
   )

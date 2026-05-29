@@ -8,6 +8,7 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Lock
@@ -27,7 +28,7 @@ import com.ritikthakur.rtcalc.ui.theme.Orange
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(
+fun SettingsScreenModified(
     themeMode: ThemeMode,
     angleMode: AngleMode,
     decimalPrecision: Int,
@@ -38,7 +39,7 @@ fun SettingsScreen(
     onPrecisionChange: (Int) -> Unit,
     onHapticChange: (Boolean) -> Unit,
     onScientificChange: (Boolean) -> Unit,
-    onDismiss: () -> Unit
+    onMenuClick: () -> Unit
 ) {
     var activeSubScreen by remember { mutableStateOf<SettingsSubScreen?>(null) }
 
@@ -54,8 +55,8 @@ fun SettingsScreen(
             TopAppBar(
                 title = { Text("Settings", fontWeight = FontWeight.Bold) },
                 navigationIcon = {
-                    IconButton(onClick = onDismiss) {
-                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+                    IconButton(onClick = onMenuClick) {
+                        Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(

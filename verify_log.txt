@@ -1,0 +1,129 @@
+--------- beginning of main
+05-29 21:27:51.490 25158 25189 I Finsky  : [587] WM::SCH: Logging work initialize for 12-1
+05-29 21:27:51.491  1124  1124 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.feedback.internal.IFeedbackService dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsBoundBrokerService }
+05-29 21:27:51.492  1124  1124 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.feedback.internal.IFeedbackService dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsBoundBrokerService }
+05-29 21:27:51.504 25158 25189 I Finsky  : [587] WM::SCH: Logging work initialize for 12-1
+05-29 21:27:51.511 25158 25193 I Finsky  : [591] SCH: Scheduling phonesky job Id: 12-1, CT: 1780069370998, Constraints: [{ L: 15000, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+05-29 21:27:51.513  1124  1217 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=null serviceId=30
+05-29 21:27:51.516 25158 25194 I Finsky  : [592] SCH: Scheduling 1 system job(s)
+05-29 21:27:51.516 25158 25194 I Finsky  : [592] SCH: Scheduling system job Id: 9493, L: 14482, D: 84921587, C: false, I: false, N: 1
+05-29 21:27:51.529 25158 25186 I Finsky  : [584] [ContentSync] finished, scheduled=true
+05-29 21:27:51.529 25158 25197 I Finsky  : [595] SCH: Scheduling phonesky job Id: 12-1, CT: 1780069371175, Constraints: [{ L: 15000, D: 86400000, C: CHARGING_NONE, I: IDLE_NONE, N: NET_ANY, B: BATTERY_ANY }]
+05-29 21:27:51.533 25158 25196 I Finsky  : [594] SCH: Scheduling 0 system job(s)
+05-29 21:27:51.533 25158 25196 I Finsky  : [594] [ContentSync] finished, scheduled=true
+--------- beginning of system
+05-29 21:27:51.540  1407  1817 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=com.ritikthakur.rtcalc/.ui.MainActivity} from uid 2000
+05-29 21:27:51.540  1407  1601 D CompatibilityChangeReporter: Compat change id reported: 161252188; UID 1000; state: DISABLED
+05-29 21:27:51.541  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 265464455; UID 10234; state: DISABLED
+05-29 21:27:51.542  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 265452344; UID 10234; state: DISABLED
+05-29 21:27:51.542  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 266124927; UID 10234; state: DISABLED
+05-29 21:27:51.542  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 265451093; UID 10234; state: DISABLED
+05-29 21:27:51.542  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 265456536; UID 10234; state: DISABLED
+05-29 21:27:51.542  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 255940284; UID 10234; state: DISABLED
+05-29 21:27:51.543  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 236283604; UID 10234; state: DISABLED
+05-29 21:27:51.543  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 263959004; UID 10234; state: DISABLED
+05-29 21:27:51.543  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 264304459; UID 10234; state: DISABLED
+05-29 21:27:51.544  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 264301586; UID 10234; state: DISABLED
+05-29 21:27:51.544  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 254631730; UID 10234; state: DISABLED
+05-29 21:27:51.544  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 273509367; UID 10234; state: DISABLED
+05-29 21:27:51.544  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 263259275; UID 10234; state: DISABLED
+05-29 21:27:51.549  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 194480991; UID 10234; state: ENABLED
+05-29 21:27:51.549  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 174042980; UID 10234; state: DISABLED
+05-29 21:27:51.552  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 184838306; UID 10234; state: DISABLED
+05-29 21:27:51.553  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 185004937; UID 10234; state: DISABLED
+05-29 21:27:51.553  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 181136395; UID 10234; state: DISABLED
+05-29 21:27:51.553  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 174042936; UID 10234; state: DISABLED
+05-29 21:27:51.554  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 197654537; UID 10234; state: ENABLED
+05-29 21:27:51.556  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 205907456; UID 10234; state: ENABLED
+05-29 21:27:51.562  1407  1448 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10234; state: DISABLED
+05-29 21:27:51.562  1407  1448 D CompatibilityChangeReporter: Compat change id reported: 177438394; UID 10234; state: DISABLED
+05-29 21:27:51.562  1407  1448 D CompatibilityChangeReporter: Compat change id reported: 135772972; UID 10234; state: DISABLED
+05-29 21:27:51.562  1407  1448 D CompatibilityChangeReporter: Compat change id reported: 135754954; UID 10234; state: ENABLED
+05-29 21:27:51.563  1407  1456 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10234; state: ENABLED
+05-29 21:27:51.563  1407  1445 W Looper  : Drained
+05-29 21:27:51.566  1407  1460 W libprocessgroup: Failed to open /dev/blkio//cgroup.procs: No such file or directory
+05-29 21:27:51.566  1619  1821 W Parcel  : Expecting binder but got null!
+05-29 21:27:51.570  1619  1762 W PackageManager: Failure retrieving resources for com.ritikthakur.rtcalc: Drawable com.ritikthakur.rtcalc:mipmap/ic_launcher_round with resource ID #0x7f0a0001
+05-29 21:27:51.574  1407  2442 D CoreBackPreview: Window{8b94241 u0 Splash Screen com.ritikthakur.rtcalc}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@e16c17d, mPriority=0}
+05-29 21:27:51.576  1124 28688 I Icing   : Usage reports ok 12, Failed Usage reports 0, indexed 0, rejected 0
+05-29 21:27:51.587   686   686 D Zygote  : Forked child process 29585
+05-29 21:27:51.588  1407  1456 I ActivityManager: Start proc 29585:com.ritikthakur.rtcalc/u0a234 for next-top-activity {com.ritikthakur.rtcalc/com.ritikthakur.rtcalc.ui.MainActivity}
+05-29 21:27:51.593  1619  1821 E OpenGLRenderer: Unable to match the desired swap behavior.
+05-29 21:27:51.616 29585 29585 I ikthakur.rtcalc: Late-enabling -Xcheck:jni
+05-29 21:27:51.637   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:51.655  1124 28688 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0
+05-29 21:27:51.658  1124 28688 I Icing   : Indexing com.google.android.gms-apps from com.google.android.gms
+05-29 21:27:51.662 17673 17673 I cecj    : onPause
+05-29 21:27:51.664 17673 17673 W dugj    : measuring already stopped.
+05-29 21:27:51.672  1407  1817 D CompatibilityChangeReporter: Compat change id reported: 197654537; UID 1000; state: ENABLED
+05-29 21:27:51.673  1407  1541 E WifiVendorHal: getWifiLinkLayerStats_1_6_Internal(l.1199) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+05-29 21:27:51.682   817   890 I adbd    : jdwp connection from 29585
+05-29 21:27:51.702  1407  1454 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+05-29 21:27:51.710  1407  1454 W WindowMagnificationMgr: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+05-29 21:27:51.721 29585 29585 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10234; state: ENABLED
+05-29 21:27:51.726  1124 28688 I Icing   : Indexing done com.google.android.gms-apps
+05-29 21:27:51.740 29585 29585 W ziparchive: Unable to open '/data/app/~~eNQiW7RORbMmi-Ym4bRpDg==/com.ritikthakur.rtcalc-vhBemL3tpdaMu04awB0hnQ==/base.dm': No such file or directory
+05-29 21:27:51.740 29585 29585 W ziparchive: Unable to open '/data/app/~~eNQiW7RORbMmi-Ym4bRpDg==/com.ritikthakur.rtcalc-vhBemL3tpdaMu04awB0hnQ==/base.dm': No such file or directory
+05-29 21:27:51.921   953  1045 D AAL     : 05-29 09:27:51.737 BL= 238,ESS= 256, 05-29 09:27:51.786 BL= 239,ESS= 256, 05-29 09:27:51.821 BL= 240,ESS= 256, 05-29 09:27:51.870 BL= 241,ESS= 256, 05-29 09:27:51.921 BL= 242,ESS= 256, 
+05-29 21:27:51.970   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:52.046  1407  1454 W VoiceInteractionManager: no available voice recognition services found for user 0
+05-29 21:27:52.088  1825  1862 W PackageManager: Failure retrieving resources for com.ritikthakur.rtcalc: Drawable com.ritikthakur.rtcalc:mipmap/ic_launcher_round with resource ID #0x7f0a0001
+05-29 21:27:52.112  1825  1862 W PackageManager: Failure retrieving resources for com.ritikthakur.rtcalc: Drawable com.ritikthakur.rtcalc:mipmap/ic_launcher_round with resource ID #0x7f0a0001
+05-29 21:27:52.170   953  1045 D AAL     : 05-29 09:27:51.953 BL= 243,ESS= 256, 05-29 09:27:52.003 BL= 244,ESS= 256, 05-29 09:27:52.053 BL= 245,ESS= 256, 05-29 09:27:52.119 BL= 246,ESS= 256, 05-29 09:27:52.170 BL= 247,ESS= 256, 
+05-29 21:27:52.303   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:52.326 29585 29585 V GraphicsEnvironment: ANGLE Developer option for 'com.ritikthakur.rtcalc' set to: 'default'
+05-29 21:27:52.326 29585 29585 V GraphicsEnvironment: ANGLE GameManagerService for com.ritikthakur.rtcalc: false
+05-29 21:27:52.327 29585 29585 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+05-29 21:27:52.330 29585 29585 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+05-29 21:27:52.332 29585 29585 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+05-29 21:27:52.403   953  1045 D AAL     : 05-29 09:27:52.220 BL= 248,ESS= 256, 05-29 09:27:52.270 BL= 249,ESS= 256, 05-29 09:27:52.320 BL= 250,ESS= 256, 05-29 09:27:52.353 BL= 251,ESS= 256, 05-29 09:27:52.403 BL= 252,ESS= 256, 
+05-29 21:27:52.543 29585 29585 D CompatibilityChangeReporter: Compat change id reported: 237531167; UID 10234; state: DISABLED
+05-29 21:27:52.552 29585 29603 W Parcel  : Expecting binder but got null!
+05-29 21:27:52.561  1407  4412 D CoreBackPreview: Window{e64c6fb u0 com.ritikthakur.rtcalc/com.ritikthakur.rtcalc.ui.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@bbab171, mPriority=0}
+05-29 21:27:52.564   707   707 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:23.924582,dur:1170.34,max:586.91,min:14.25  
+05-29 21:27:52.637   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:52.670   953  1045 D AAL     : 05-29 09:27:52.453 BL= 253,ESS= 256, 05-29 09:27:52.503 BL= 254,ESS= 256, 05-29 09:27:52.553 BL= 255,ESS= 256, 05-29 09:27:52.603 BL= 256,ESS= 256, 05-29 09:27:52.670 BL= 257,ESS= 256, 
+05-29 21:27:52.887   953  1045 D AAL     : 05-29 09:27:52.704 BL= 258,ESS= 256, 05-29 09:27:52.737 BL= 259,ESS= 256, 05-29 09:27:52.787 BL= 260,ESS= 256, 05-29 09:27:52.837 BL= 261,ESS= 256, 05-29 09:27:52.887 BL= 262,ESS= 256, 
+05-29 21:27:52.899 29585 29585 W ikthakur.rtcalc: Method java.lang.Object androidx.compose.runtime.snapshots.SnapshotStateMap.mutate(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:27:52.899 29585 29585 W ikthakur.rtcalc: Common causes for lock verification issues are non-optimized dex code
+05-29 21:27:52.899 29585 29585 W ikthakur.rtcalc: and incorrect proguard optimizations.
+05-29 21:27:52.899 29585 29585 W ikthakur.rtcalc: Method void androidx.compose.runtime.snapshots.SnapshotStateMap.update(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:27:52.900 29585 29585 W ikthakur.rtcalc: Method boolean androidx.compose.runtime.snapshots.SnapshotStateMap.removeIf$runtime_release(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:27:52.970   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:53.120   953  1045 D AAL     : 05-29 09:27:52.937 BL= 263,ESS= 256, 05-29 09:27:52.987 BL= 264,ESS= 256, 05-29 09:27:53.037 BL= 265,ESS= 256, 05-29 09:27:53.070 BL= 266,ESS= 256, 05-29 09:27:53.120 BL= 267,ESS= 256, 
+05-29 21:27:53.239 29585 29585 W ikthakur.rtcalc: Accessing hidden method Ljava/lang/invoke/MethodHandles$Lookup;-><init>(Ljava/lang/Class;I)V (unsupported, reflection, allowed)
+05-29 21:27:53.303   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:53.371   953  1045 D AAL     : 05-29 09:27:53.170 BL= 268,ESS= 256, 05-29 09:27:53.220 BL= 269,ESS= 256, 05-29 09:27:53.270 BL= 270,ESS= 256, 05-29 09:27:53.321 BL= 271,ESS= 256, 05-29 09:27:53.371 BL= 272,ESS= 256, 
+05-29 21:27:53.435   743  2315 W ServiceManager: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10234 pid=0
+05-29 21:27:53.436   743  2315 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10234 => denied (828 us)
+05-29 21:27:53.436   743  1111 W ServiceManager: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10234 pid=29585
+05-29 21:27:53.436   743  2315 W ServiceManager: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10234 pid=0
+05-29 21:27:53.436   743  1111 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10234 => denied (520 us)
+05-29 21:27:53.436   743  2315 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10234 => denied (480 us)
+05-29 21:27:53.437   743  1111 W ServiceManager: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10234 pid=29585
+05-29 21:27:53.437   743  2315 W ServiceManager: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10234 pid=0
+05-29 21:27:53.437   743  1111 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10234 => denied (364 us)
+05-29 21:27:53.437   743  2315 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10234 => denied (379 us)
+05-29 21:27:53.456   420   420 I hwservicemanager: getTransport: Cannot find entry android.hardware.configstore@1.0::ISurfaceFlingerConfigs/default in either framework or device VINTF manifest.
+05-29 21:27:53.457 29585 29603 E OpenGLRenderer: Device claims wide gamut support, cannot find matching config, error = EGL_SUCCESS
+05-29 21:27:53.457 29585 29603 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+05-29 21:27:53.470 29585 29613 D TrafficStats: tagSocket(104) with statsTag=0xffffffff, statsUid=-1
+05-29 21:27:53.473   743  1111 E HWComposer: getSupportedContentTypes: getSupportedContentTypes failed for display 0: Unsupported (8)
+05-29 21:27:53.475 29585 29603 E OpenGLRenderer: Unable to match the desired swap behavior.
+05-29 21:27:53.482   419   419 I servicemanager: Could not find android.hardware.graphics.allocator.IAllocator/default in the VINTF manifest.
+05-29 21:27:53.483 29585 29629 I Gralloc4: Adding additional valid usage bits: 0x2000
+05-29 21:27:53.486 29585 29629 E ion     : ioctl c0044901 failed with code -1: Invalid argument
+05-29 21:27:53.576   707   707 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:9.876460,dur:1012.51,max:864.17,min:14.41  
+05-29 21:27:53.604   953  1045 D AAL     : 05-29 09:27:53.420 BL= 273,ESS= 256, 05-29 09:27:53.454 BL= 274,ESS= 256, 05-29 09:27:53.504 BL= 275,ESS= 256, 05-29 09:27:53.554 BL= 276,ESS= 256, 05-29 09:27:53.604 BL= 277,ESS= 256, 
+05-29 21:27:53.637   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:53.787 29585 29613 D TrafficStats: tagSocket(108) with statsTag=0xffffffff, statsUid=-1
+05-29 21:27:53.853 29585 29585 W ikthakur.rtcalc: Method boolean androidx.compose.runtime.snapshots.SnapshotStateList.conditionalUpdate(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:27:53.853 29585 29585 W ikthakur.rtcalc: Method java.lang.Object androidx.compose.runtime.snapshots.SnapshotStateList.mutate(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:27:53.854 29585 29585 W ikthakur.rtcalc: Method void androidx.compose.runtime.snapshots.SnapshotStateList.update(kotlin.jvm.functions.Function1) failed lock verification and will run slower.
+05-29 21:27:53.854   953  1045 D AAL     : 05-29 09:27:53.688 BL= 278,ESS= 256, 05-29 09:27:53.720 BL= 279,ESS= 256, 05-29 09:27:53.771 BL= 280,ESS= 256, 05-29 09:27:53.821 BL= 281,ESS= 256, 05-29 09:27:53.854 BL= 282,ESS= 256, 
+05-29 21:27:53.970   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:54.104   953  1045 D AAL     : 05-29 09:27:53.904 BL= 283,ESS= 256, 05-29 09:27:53.954 BL= 284,ESS= 256, 05-29 09:27:54.004 BL= 285,ESS= 256, 05-29 09:27:54.054 BL= 286,ESS= 256, 05-29 09:27:54.104 BL= 287,ESS= 256, 
+05-29 21:27:54.165   932   932 I thermal_repeater: [recvMdThermalInfo] ret=29, strLen=127,  3, 31, -50, -28361, 32767, 0
+05-29 21:27:54.303   854   959 E Light   : AmbienteLight: 0.000000
+05-29 21:27:54.338   953  1045 D AAL     : 05-29 09:27:54.154 BL= 288,ESS= 256, 05-29 09:27:54.187 BL= 289,ESS= 256, 05-29 09:27:54.237 BL= 290,ESS= 256, 05-29 09:27:54.288 BL= 291,ESS= 256, 05-29 09:27:54.337 BL= 292,ESS= 256, 
+05-29 21:27:54.571   953  1045 D AAL     : 05-29 09:27:54.387 BL= 293,ESS= 256, 05-29 09:27:54.438 BL= 294,ESS= 256, 05-29 09:27:54.487 BL= 295,ESS= 256, 05-29 09:27:54.538 BL= 296,ESS= 256, 05-29 09:27:54.571 BL= 297,ESS= 256, 

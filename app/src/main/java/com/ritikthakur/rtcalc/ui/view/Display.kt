@@ -44,10 +44,10 @@ fun Display(
     val isDark = isSystemInDarkTheme()
 
     val displayFontSize = when {
-        displayValue.length > 14 -> 28.sp
-        displayValue.length > 10 -> 40.sp
-        displayValue.length > 7 -> 52.sp
-        else -> 68.sp
+        displayValue.length > 14 -> 36.sp
+        displayValue.length > 10 -> 48.sp
+        displayValue.length > 7 -> 64.sp
+        else -> 86.sp
     }
 
     // Custom selection colors (fintech gold-orange accent theme)
@@ -79,7 +79,7 @@ fun Display(
                 onValueChange = onExpressionValueChange,
                 readOnly = true, // Disable system soft keyboard while maintaining focus, cursor blinking, selection
                 textStyle = TextStyle(
-                    fontSize = 22.sp,
+                    fontSize = 28.sp,
                     color = if (isDark) Color.White.copy(alpha = 0.7f) else LightTextSecondary,
                     textAlign = TextAlign.End,
                     letterSpacing = 0.5.sp

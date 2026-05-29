@@ -9,6 +9,7 @@
         android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <permission
         android:name="com.ritikthakur.rtcalc.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
