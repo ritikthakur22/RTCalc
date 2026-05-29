@@ -83,4 +83,4 @@ RTCalc requires no special permissions (e.g. no internet access, no contacts acc
 We may update our Privacy Policy from time to time. You are advised to review this policy periodically for any changes.
 
 **5. Contact Us**
-If you have any questions or feedback, please contact us at support@ritikthakur.com.
+If you have any questions or feedback, please contact us at ritikthakur@duck.com.

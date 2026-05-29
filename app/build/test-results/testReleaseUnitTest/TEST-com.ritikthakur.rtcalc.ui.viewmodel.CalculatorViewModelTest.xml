@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-05-29T14:21:00" hostname="admin" time="1.588">
+<testsuite name="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-05-29T14:47:07" hostname="admin" time="1.66">
   <properties/>
-  <testcase name="testDeleteBehavior" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="1.522"/>
-  <testcase name="testSecondOperandMultiDigitEntry" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.01"/>
-  <testcase name="testDecimalClickAppendsDot" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.009"/>
-  <testcase name="testHistorySearchQueryFiltering" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.01"/>
-  <testcase name="testStateRestoration" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.011"/>
-  <testcase name="testMemoryOperations" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.007"/>
-  <testcase name="testFirstOperandMultiDigitEntry" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.007"/>
+  <testcase name="testDeleteBehavior" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="1.563"/>
+  <testcase name="testSecondOperandMultiDigitEntry" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.011"/>
+  <testcase name="testDecimalClickAppendsDot" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.011"/>
+  <testcase name="testHistorySearchQueryFiltering" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.011"/>
+  <testcase name="testStateRestoration" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.012"/>
+  <testcase name="testMemoryOperations" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.008"/>
+  <testcase name="testFirstOperandMultiDigitEntry" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.008"/>
+  <testcase name="testUndoRedoFlow" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.008"/>
+  <testcase name="testCursorInsertion" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.008"/>
+  <testcase name="testSelectionDeletion" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.008"/>
   <testcase name="testScientificFunctionsAppendsCorrectly" classname="com.ritikthakur.rtcalc.ui.viewmodel.CalculatorViewModelTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

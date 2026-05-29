@@ -43,7 +43,8 @@ fun CalculatorScreen(
     val coroutineScope = rememberCoroutineScope()
     
     // UI state flows from ViewModel
-    val expression by viewModel.expression.collectAsState()
+
+    val expressionValue by viewModel.expressionVal.collectAsState()
     val displayValue by viewModel.displayValue.collectAsState()
     val historyList by viewModel.historyList.collectAsState()
     val themeMode by viewModel.themeMode.collectAsState()
@@ -249,7 +250,8 @@ fun CalculatorScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Display(
-                        expression = expression,
+                        expressionValue = expressionValue,
+                        onExpressionValueChange = { viewModel.updateExpressionValue(it) },
                         displayValue = displayValue,
                         modifier = Modifier.weight(1f)
                     )
@@ -310,7 +312,8 @@ fun CalculatorScreen(
                         }
                 ) {
                     Display(
-                        expression = expression,
+                        expressionValue = expressionValue,
+                        onExpressionValueChange = { viewModel.updateExpressionValue(it) },
                         displayValue = displayValue,
                         modifier = Modifier.fillMaxSize()
                     )
@@ -345,17 +348,39 @@ fun CalculatorScreen(
                             )
                         }
 
-                        // Sliding indicator handle
-                        Box(
-                            modifier = Modifier
-                                .width(40.dp)
-                                .height(5.dp)
-                                .background(
-                                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f),
-                                    shape = RoundedCornerShape(2.5.dp)
+                        // Undo and Redo Buttons in the middle
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            IconButton(onClick = { viewModel.undo() }) {
+                                Text(
+                                    text = "↶",
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onBackground
                                 )
-                                .clickable { isScientificExpanded = !isScientificExpanded }
-                        )
+                            }
+                            // Small handle indicator
+                            Box(
+                                modifier = Modifier
+                                    .width(20.dp)
+                                    .height(4.dp)
+                                    .background(
+                                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f),
+                                        shape = RoundedCornerShape(2.dp)
+                                    )
+                                    .clickable { isScientificExpanded = !isScientificExpanded }
+                            )
+                            IconButton(onClick = { viewModel.redo() }) {
+                                Text(
+                                    text = "↷",
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onBackground
+                                )
+                            }
+                        }
 
                         Button(
                             onClick = { isScientificExpanded = !isScientificExpanded },
@@ -382,32 +407,7 @@ fun CalculatorScreen(
                         .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
                 ) {
                     Column {
-                        // Expandable scientific panel for portrait mobile mode
-                        if (!isLandscape) {
-                            androidx.compose.animation.AnimatedVisibility(
-                                visible = isScientificExpanded,
-                                enter = androidx.compose.animation.expandVertically() + androidx.compose.animation.fadeIn(),
-                                exit = androidx.compose.animation.shrinkVertically() + androidx.compose.animation.fadeOut()
-                            ) {
-                                ScientificPortraitPanel(
-                                    onFunctionClick = { viewModel.onFunctionClick(it) },
-                                    onMemoryClear = { viewModel.onMemoryClear() },
-                                    onMemoryRecall = { viewModel.onMemoryRecall() },
-                                    onMemoryStore = { viewModel.onMemoryStore() },
-                                    onMemoryAdd = { viewModel.onMemoryAdd() },
-                                    onMemorySubtract = { viewModel.onMemorySubtract() },
-                                    onAngleToggle = {
-                                        viewModel.setAngleMode(
-                                            if (angleMode == AngleMode.DEGREE) AngleMode.RADIAN else AngleMode.DEGREE
-                                        )
-                                    },
-                                    angleMode = angleMode,
-                                    hapticEnabled = hapticEnabled,
-                                    isDark = isDark
-                                )
-                                Spacer(modifier = Modifier.height(8.dp))
-                            }
-                        }
+
 
                         Keypad(
                             onDigitClick = { viewModel.onDigitClick(it) },
@@ -456,5 +456,35 @@ fun CalculatorScreen(
             onDeleteItemClick = { viewModel.deleteHistoryItem(it) },
             onClearHistoryClick = { viewModel.clearAllHistory() }
         )
+    }
+
+    // Modal Bottom Sheet displaying scientific functions on mobile devices
+    if (isScientificExpanded && !isLandscape && !isTablet) {
+        val sciSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+        ModalBottomSheet(
+            onDismissRequest = { isScientificExpanded = false },
+            sheetState = sciSheetState,
+            dragHandle = { BottomSheetDefaults.DragHandle() },
+            containerColor = backgroundColor
+        ) {
+            Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 32.dp)) {
+                ScientificPortraitPanel(
+                    onFunctionClick = { viewModel.onFunctionClick(it) },
+                    onMemoryClear = { viewModel.onMemoryClear() },
+                    onMemoryRecall = { viewModel.onMemoryRecall() },
+                    onMemoryStore = { viewModel.onMemoryStore() },
+                    onMemoryAdd = { viewModel.onMemoryAdd() },
+                    onMemorySubtract = { viewModel.onMemorySubtract() },
+                    onAngleToggle = {
+                        viewModel.setAngleMode(
+                            if (angleMode == com.ritikthakur.rtcalc.data.repository.AngleMode.DEGREE) com.ritikthakur.rtcalc.data.repository.AngleMode.RADIAN else com.ritikthakur.rtcalc.data.repository.AngleMode.DEGREE
+                        )
+                    },
+                    angleMode = angleMode,
+                    hapticEnabled = hapticEnabled,
+                    isDark = isDark
+                )
+            }
+        }
     }
 }

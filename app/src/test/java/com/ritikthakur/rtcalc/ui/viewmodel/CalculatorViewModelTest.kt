@@ -163,4 +163,49 @@ class CalculatorViewModelTest {
         viewModel.setSearchQuery("invalid")
         assertTrue(viewModel.historyList.value.isEmpty())
     }
+
+    @Test
+    fun testCursorInsertion() = runTest {
+        viewModel.onDigitClick("1")
+        viewModel.onDigitClick("2")
+        viewModel.onDigitClick("3")
+        viewModel.onOperatorClick("+")
+        viewModel.onDigitClick("4")
+        viewModel.onDigitClick("5")
+        viewModel.onDigitClick("6") // "123+456"
+        
+        // Tap between "123" and "+456" (index 3)
+        viewModel.updateExpressionValue(androidx.compose.ui.text.input.TextFieldValue("123+456", androidx.compose.ui.text.TextRange(3)))
+        viewModel.onDigitClick("7") // "1237+456"
+        
+        assertEquals("1237+456", viewModel.expressionVal.value.text)
+        assertEquals(4, viewModel.expressionVal.value.selection.start) // Cursor moved past '7'
+    }
+
+    @Test
+    fun testSelectionDeletion() = runTest {
+        viewModel.onDigitClick("1")
+        viewModel.onDigitClick("2")
+        viewModel.onDigitClick("3")
+        viewModel.onDigitClick("4") // "1234"
+        
+        // Select "23" (index 1 to 3)
+        viewModel.updateExpressionValue(androidx.compose.ui.text.input.TextFieldValue("1234", androidx.compose.ui.text.TextRange(1, 3)))
+        viewModel.onDeleteClick() // deletes "23", expression becomes "14"
+        
+        assertEquals("14", viewModel.expressionVal.value.text)
+        assertEquals(1, viewModel.expressionVal.value.selection.start)
+    }
+
+    @Test
+    fun testUndoRedoFlow() = runTest {
+        viewModel.onDigitClick("1")
+        viewModel.onDigitClick("2") // "12"
+        
+        viewModel.undo() // reverts to "1"
+        assertEquals("1", viewModel.expressionVal.value.text)
+        
+        viewModel.redo() // restores to "12"
+        assertEquals("12", viewModel.expressionVal.value.text)
+    }
 }

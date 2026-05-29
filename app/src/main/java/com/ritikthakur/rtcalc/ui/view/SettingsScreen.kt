@@ -306,7 +306,7 @@ fun SubScreenDialog(
                             )
                             Spacer(modifier = Modifier.height(16.dp))
                             Text("Developer: Ritik Thakur", fontWeight = FontWeight.Bold)
-                            Text("Contact: support@ritikthakur.com")
+                            Text("Contact: ritikthakur@duck.com")
                         }
                         SettingsSubScreen.PRIVACY_POLICY -> {
                             Text("Privacy Policy", fontSize = 24.sp, fontWeight = FontWeight.Bold, color = Orange)

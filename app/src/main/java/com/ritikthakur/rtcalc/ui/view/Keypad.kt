@@ -27,20 +27,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ritikthakur.rtcalc.ui.theme.*
 
-private fun triggerVibration(context: Context) {
-    try {
-        val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
-        if (vibrator != null && vibrator.hasVibrator()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(35, VibrationEffect.DEFAULT_AMPLITUDE))
-            } else {
-                @Suppress("DEPRECATION")
-                vibrator.vibrate(35)
-            }
-        }
-    } catch (e: Exception) {
-        // Safe fallback
-    }
+private fun triggerVibration(view: android.view.View) {
+    view.performHapticFeedback(android.view.HapticFeedbackConstants.KEYBOARD_TAP)
 }
 
 @Composable
@@ -389,7 +377,6 @@ fun CalcButton(
     isSciBtn: Boolean,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
     val view = LocalView.current
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -421,7 +408,7 @@ fun CalcButton(
                 indication = null,
                 onClick = {
                     if (hapticEnabled) {
-                        triggerVibration(context)
+                        triggerVibration(view)
                     }
                     data.onClick()
                 }
