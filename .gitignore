@@ -1,20 +1,20 @@
-# Build files
-build/
-dist/
-
-# Android
+# Gradle & Build caches
 .gradle/
+build/
+app/build/
+*.apk
+*.aab
+
+# Local properties & SDK
 local.properties
 
 # IDE
-.vscode/
 .idea/
+*.iml
+.vscode/
 
-# Logs
+# System & temporary files
+.DS_Store
 *.log
-
-# APKs
-*.apk
-
-# Temporary files
 *.tmp
+capture_*.png

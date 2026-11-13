@@ -28,7 +28,6 @@ class CalculatorViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    // Expose flows to the UI for reactive updates
     val expression: StateFlow<String> = savedStateHandle.getStateFlow("expression", "")
     val displayValue: StateFlow<String> = savedStateHandle.getStateFlow("display_value", "0")
     val memoryValue: StateFlow<String> = savedStateHandle.getStateFlow("memory_value", "0")
@@ -44,14 +43,11 @@ class CalculatorViewModel @Inject constructor(
     )
     val expressionVal: StateFlow<TextFieldValue> = _expressionVal.asStateFlow()
 
-    // Undo/Redo history stacks
     private val undoStack = java.util.Stack<TextFieldValue>()
     private val redoStack = java.util.Stack<TextFieldValue>()
 
-    // History Search Query
     val searchQuery = MutableStateFlow("")
 
-    // Database History Flow combined with Search Query
     val historyList: StateFlow<List<HistoryEntity>> = historyRepository.getAllHistory()
         .combine(searchQuery) { list, query ->
             if (query.isBlank()) {
@@ -65,23 +61,18 @@ class CalculatorViewModel @Inject constructor(
         }
         .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
-    // Theme Mode Flow
     val themeMode: StateFlow<ThemeMode> = settingsRepository.themeModeFlow
         .stateIn(viewModelScope, SharingStarted.Eagerly, ThemeMode.SYSTEM)
 
-    // Haptic Feedback Flow
     val hapticEnabled: StateFlow<Boolean> = settingsRepository.hapticEnabledFlow
         .stateIn(viewModelScope, SharingStarted.Eagerly, true)
 
-    // Angle Mode Flow
     val angleMode: StateFlow<AngleMode> = settingsRepository.angleModeFlow
         .stateIn(viewModelScope, SharingStarted.Eagerly, AngleMode.DEGREE)
 
-    // Decimal Precision Flow
     val decimalPrecision: StateFlow<Int> = settingsRepository.decimalPrecisionFlow
         .stateIn(viewModelScope, SharingStarted.Eagerly, 10)
 
-    // Scientific Notation Flow
     val scientificNotation: StateFlow<Boolean> = settingsRepository.scientificNotationFlow
         .stateIn(viewModelScope, SharingStarted.Eagerly, false)
 
@@ -89,7 +80,6 @@ class CalculatorViewModel @Inject constructor(
     private fun getDisplayValue(): String = savedStateHandle.get<String>("display_value") ?: "0"
     private fun isResultState(): Boolean = savedStateHandle.get<Boolean>("is_result") ?: false
 
-    // Update active expression and sync to SavedStateHandle and flows
     private fun updateExpressionVal(newValue: TextFieldValue, isUndoRedoAction: Boolean = false) {
         if (!isUndoRedoAction) {
             val current = _expressionVal.value
@@ -105,7 +95,6 @@ class CalculatorViewModel @Inject constructor(
     }
 
     fun updateExpressionValue(newValue: TextFieldValue) {
-        // Keeps user cursor navigation & text selection edits updated
         updateExpressionVal(newValue)
     }
 

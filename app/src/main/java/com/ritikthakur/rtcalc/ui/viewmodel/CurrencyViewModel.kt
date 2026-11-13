@@ -62,15 +62,19 @@ class CurrencyViewModel @Inject constructor(
     }
 
     fun setAmount(newAmount: String) {
-        if (newAmount.isEmpty() || newAmount.count { it == '.' } > 1) {
-            _amount.value = newAmount
+        if (newAmount.isEmpty()) {
+            _amount.value = ""
             return
         }
-        try {
-            newAmount.toDouble() // validate
+        if (newAmount.count { it == '.' } > 1) {
+            return
+        }
+        if (newAmount == ".") {
+            _amount.value = "0."
+            return
+        }
+        if (newAmount.toDoubleOrNull() != null) {
             _amount.value = newAmount
-        } catch (e: Exception) {
-            if (newAmount == ".") _amount.value = "0."
         }
     }
 

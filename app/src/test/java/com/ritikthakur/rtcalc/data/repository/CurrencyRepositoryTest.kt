@@ -9,6 +9,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 
@@ -42,11 +43,13 @@ class CurrencyRepositoryTest {
     @Test
     fun `getRates fetches from API if cache expired or missing`() = runTest {
         `when`(mockDao.getRatesForBase("USD")).thenReturn(null)
-        val response = CurrencyResponse(1.0, "USD", "2023-01-01", mapOf("EUR" to 0.85))
+        val response = CurrencyResponse(result = "success", base_code = "USD", rates = mapOf("EUR" to 0.85))
         `when`(mockApi.getLatestRates("USD")).thenReturn(response)
 
         val result = repository.getRates("USD")
         assertEquals(0.85, result["EUR"]!!, 0.001)
-        verify(mockDao).insertRates(any(CurrencyRateEntity::class.java))
+        verify(mockDao).insertRates(anyEntity())
     }
+
+    private fun anyEntity(): CurrencyRateEntity = Mockito.any(CurrencyRateEntity::class.java) ?: CurrencyRateEntity("", "", 0L)
 }
